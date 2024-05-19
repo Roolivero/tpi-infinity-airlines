@@ -15,10 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from apps.fligth.views import create_fligth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create-fligth/', create_fligth, name='create_fligth')
+    #path('create-fligth/', create_fligth, name='create_fligth'),
+    path('fligth/', include('apps.fligthHistory.urls'), name='fligth')
 ]

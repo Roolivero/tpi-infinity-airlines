@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+class SearchFligth:
+    def template(request):
+        return render(request, "searchFligth.html")
+    
+class FligthQuery():
+    def template(request):
+        return render(request, "flightQuery.html" )

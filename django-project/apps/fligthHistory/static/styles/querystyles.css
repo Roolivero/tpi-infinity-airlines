@@ -1,0 +1,25 @@
+#app {
+    display: grid;
+    grid-template-areas: 
+        "aside main main"
+        "footer footer footer";
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr auto ;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: blueviolet;
+    height: 80vh;
+}
+
+.main {
+    grid-area: main;
+    background-color: aqua;
+}
+
+.details {
+    grid-area: footer;
+    background-color: red;
+    height: 20vh;
+}
