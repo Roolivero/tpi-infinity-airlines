@@ -45,7 +45,7 @@
 ## Convenciones a seguir
 
 - clases en PascalCase
-- metodos en camelCase
+- metodos en camelCase (con snake_case es tolerable ya que asi le gusta a python)
 - variables en snake_case
 - directorios con guion-medio 
 
