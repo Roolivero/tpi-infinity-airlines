@@ -1,4 +1,5 @@
 from django.db import models
+from .manager import UserManager
 
 # Create your models here.
 
@@ -9,3 +10,4 @@ class User (models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255, null=False, default='')
 
+    objects = UserManager

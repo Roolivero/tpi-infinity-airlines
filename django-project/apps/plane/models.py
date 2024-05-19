@@ -1,4 +1,5 @@
 from django.db import models
+from .manager import PlaneManager
 class Plane(models.Model):
     plane_model = models.CharField(max_length=50)
     SIZE = [
@@ -11,3 +12,5 @@ class Plane(models.Model):
         choices=SIZE,
         default='mediano',
     )
+
+    objects = PlaneManager()

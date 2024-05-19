@@ -1,26 +1,39 @@
 
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 class AirportManager(models.Manager):
+        
+    def get_by_id(self, id):
+        try:
+            return self.get(pk=id)
+        except ObjectDoesNotExist:
+            return None
     
-    def create(self, **kwargs): 
-        obj = super().create(**kwargs)
-        return obj
+    def update_by_id(self, id, **kwargs):
+        try:
+            instance = self.get(pk=id)
+            for key, value in kwargs.items():
+                setattr(instance, key, value)
+            instance.save()
+            return True
+        except self.model.DoesNotExist:
+            return False
     
-    def get(self, *args, **kwargs):
-        obj = super().get(*args, **kwargs)
-        return obj
-    
-    def update(self, **kwargs):
-        updated_count = super().update(**kwargs)
-        return updated_count
-    
-    def delete(self, *args, **kwargs):
-        deleted_register = super().delete(*args, **kwargs)
-        return deleted_register
+    def delete_by_id(self, id):
+        try:
+            instance = self.get_by_id(id)
+            instance.delete()
+            return True
+        except ObjectDoesNotExist:
+            return False
 
-    def getByCountry(self, country_name:str):
+    def list_all(self):
+        return self.all()
+    
+    def get_by_country(self, country_name:str):
          return self.filter(fk_city__country=country_name).select_related('fk_city')
+    
     
     
 
