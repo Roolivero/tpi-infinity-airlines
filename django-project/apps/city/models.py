@@ -1,3 +1,9 @@
 from django.db import models
+from .manager import CityManager
 
-# Create your models here.
+class City(models.Model):
+    name = models.CharField(max_length=50, null=False)
+    country = models.CharField(max_length=50)
+
+    objects = CityManager()
+    
