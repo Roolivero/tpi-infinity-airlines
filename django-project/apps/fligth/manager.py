@@ -1,4 +1,5 @@
 from django.db import models
+from .models import Fligth
 
 class FligthManager(models.Manager):
 
@@ -11,3 +12,5 @@ class FligthManager(models.Manager):
     def by_code(self, code_input):
         return self.get(codigo=code_input)
         
+    def code_exists(self, code_input) -> bool:
+        return self.filter(code=code_input).exists()
