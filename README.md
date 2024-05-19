@@ -7,15 +7,17 @@
 - Es recomendable tener las dependencias del proyecto en un entorno virtual:
 
     ```bash
-    pip3 install virtualenv #Instala las variables de entorno
-    virtualenv venv # crea la carpeta Venv 
+    pip3 install virtualenv #instala el paquete de entorno virtual de python
+    virtualenv venv # crea la carpeta venv (si pones un nombre distinto agregarlo al .gitignore)
     ```
 
 ## Paso 1 instalar dependencias
 
-- El archivo requirements.txt posee todas las dependencias del proyecto
+- El archivo requirements.dev.txt posee todas las dependencias del proyecto
     ```bash
     pip install -r requirements.dev.txt #instala dependencias del proyecto
+
+- requirements.txt es necesario unicamente para el Dockerfile
 
 
 ## Paso 2 configurar variables de entorno 
@@ -34,10 +36,10 @@
 - La pagina va a a ejecutarse en localhost:{DJANGO_PORT}
 - Para hacer las migraciones sin tener que entrar al contenedor hay que ejecutar los siguientes comandos 
 
-    '''bash
+    ```bash
     sh ./scripts/make_migrations.sh
     sh ./scripts/migrate.sh
-    '''
+    ```
 
 
 ## Convenciones a seguir
@@ -59,4 +61,14 @@
     python ../manage.py startapp nombre_aplicacion
     ```
 ***obs***: No es necesario crear la carpeta con el nombre de la aplicacion
+
+## Agregar nuevas dependencias 
+
+- Si queres agregar nuevas dependencias de python al proyecto tenes que agregarlas a ambos archivos de requirements
+
+    ```bash
+    pip freeze >> requirements.txt
+    pip freeze >> requirements.dev.txt
+    ```
+    
 
