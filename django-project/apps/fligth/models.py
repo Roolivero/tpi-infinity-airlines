@@ -7,7 +7,7 @@ class Fligth(models.Model):
     code = models.CharField(max_length=20, unique=True)
     stopover = models.BooleanField(null=False)
     departure_time = models.TimeField()
-    fk_flight_history = models.ForeignKey(FligthHistory, on_delete=models.CASCADE)
+    fk_fligth_history = models.ForeignKey(FligthHistory, on_delete=models.CASCADE)
     fk_route = models.ForeignKey(Route, on_delete=models.CASCADE)
 
     objects = FligthManager()
