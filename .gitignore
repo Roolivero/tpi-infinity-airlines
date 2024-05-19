@@ -1,0 +1,8 @@
+venv
+.vscode/
+.env
+docker/
+database/
+backups/
+
+__pycache__

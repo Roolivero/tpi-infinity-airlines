@@ -1,0 +1,31 @@
+name: ${CONTAINER_NAME}
+services: 
+  database: 
+    container_name: ${CONTAINER_NAME}-db
+    image: postgres:${POSTGRES_VERSION}
+    env_file: ./.env 
+    environment: 
+      - TZ=America/Argentina/Buenos_Aires
+    ports: 
+      - ${POSTGRES_PORT}:5432
+    restart: always
+    volumes: 
+      - ./docker/volumes/data:/var/lib/postgresql/data
+      - ./docker/volumes/backups:/backups
+    extra_hosts:
+      - host.docker.internal:host-gateway 
+
+  app:
+    container_name: ${CONTAINER_NAME}-app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./django-project:/app:rw
+    ports:
+      - "${DJANGO_PORT}:8000"
+    env_file:
+      - .env
+    extra_hosts:
+      - host.docker.internal:host-gateway 
