@@ -11,3 +11,6 @@ class User (models.Model):
     password = models.CharField(max_length=255, null=False, default='')
 
     objects = UserManager
+
+    def __str__(self) -> str:
+        return f"{self.name} - {self.last_name} - {self.dni} - {self.email} - {self.password}"

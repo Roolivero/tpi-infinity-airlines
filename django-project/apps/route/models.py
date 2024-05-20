@@ -8,4 +8,6 @@ class Route(models.Model):
 
     objects = RouteManager()
 
+    def __str__(self) -> str:
+        return f"{self.fk_airport_departure.airport_code} - {self.fk_airport_arrival.airport_code}"
     

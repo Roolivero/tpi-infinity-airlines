@@ -14,3 +14,6 @@ class Plane(models.Model):
     )
 
     objects = PlaneManager()
+
+    def __str__(self) -> str:
+        return f"{self.plane_model} - {self.size}"

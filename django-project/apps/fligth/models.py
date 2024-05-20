@@ -12,3 +12,5 @@ class Fligth(models.Model):
 
     objects = FligthManager()
 
+    def __str__(self) -> str:
+        return f"{self.code} - {self.stopover} - {self.departure_time} - ORIGEN {self.fk_route.fk_airport_departure.airport_code} - DESTINO {self.fk_route.fk_airport_arrival.airport_code}"

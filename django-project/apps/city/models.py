@@ -6,4 +6,7 @@ class City(models.Model):
     country = models.CharField(max_length=50)
 
     objects = CityManager()
+
+    def __str__(self) -> str:
+        return f"{self.name} - {self.country}"
     

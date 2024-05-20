@@ -7,3 +7,6 @@ class Airport(models.Model):
     fk_city = models.ForeignKey(City, on_delete=models.CASCADE, null=False)
 
     objects = AirportManager()
+
+    def __str__(self) -> str:
+        return f"{self.airport_code} - {self.fk_city}"

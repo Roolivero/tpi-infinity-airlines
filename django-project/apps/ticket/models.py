@@ -13,3 +13,6 @@ class Ticket(models.Model):
     fk_fligth = models.ForeignKey(Fligth, on_delete=models.CASCADE)
 
     objects = TicketManager()
+
+    def __str__(self) -> str:
+        return f"{self.fligth_date} - {self.ticket_class} - {self.purchase_date} - {self.seat_location} - {self.fk_user.name} - {self.fk_user.last_name} - {self.fk_user.dni} - {self.fk_fligth.code} - {self.fk_fligth.departure_time} - {self.fk_fligth.fk_route.fk_airport_departure.airport_code} - {self.fk_fligth.fk_route.fk_airport_arrival.airport_code}"

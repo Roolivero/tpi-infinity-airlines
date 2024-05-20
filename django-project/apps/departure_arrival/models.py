@@ -10,3 +10,6 @@ class Departure_arrival(models.Model):
     fk_departure = models.ForeignKey(Route, on_delete=models.CASCADE, null= True, related_name='departure_routes')
 
     objects = DepartureArrivalManager()
+
+    def __str__(self) -> str:
+        return f"Departure  {self.fk_departure.fk_airport_departure.airport_code} - Arrival  {self.fk_arrival.fk_airport_arrival.airport_code}"
