@@ -10,7 +10,7 @@ class User (models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255, null=False, default='')
 
-    objects = UserManager
+    objects = UserManager()
 
     def __str__(self) -> str:
         return f"{self.name} - {self.last_name} - {self.dni} - {self.email} - {self.password}"
