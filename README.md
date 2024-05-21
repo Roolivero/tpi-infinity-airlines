@@ -67,8 +67,13 @@
 - Si queres agregar nuevas dependencias de python al proyecto tenes que agregarlas a ambos archivos de requirements
 
     ```bash
-    pip freeze >> requirements.txt
-    pip freeze >> requirements.dev.txt
+    pip freeze > requirements.txt
+    pip freeze > requirements.dev.txt
     ```
-    
+- Y si no queres apagar el contenedor para que docker pueda detectar nuevas dependencias tenes que instalar la dependencia dentro del servicio
+
+    ```bash
+    docker exec -it {nombre_contenedor} bash
+    pip install {nombre_dependencia}
+    ```
 

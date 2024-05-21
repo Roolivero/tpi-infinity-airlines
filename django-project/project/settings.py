@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'apps.plane',
     'apps.route',
     'apps.ticket',
-    'apps.user'
+    'apps.user',
+    "django_bootstrap5",
 ]
 
 MIDDLEWARE = [
