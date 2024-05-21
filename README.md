@@ -70,10 +70,8 @@
     pip freeze > requirements.txt
     pip freeze > requirements.dev.txt
     ```
-- Y si no queres apagar el contenedor para que docker pueda detectar nuevas dependencias tenes que instalar la dependencia dentro del servicio
-
+- Para instalar la dependencia dentro del contenedor ejecute el siguiente script
     ```bash
-    docker exec -it {nombre_contenedor} bash
-    pip install {nombre_dependencia}
+    sh ./scripts/pip_install.sh {nombre_dependencia}
     ```
 
