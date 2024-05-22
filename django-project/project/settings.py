@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.airport',
     'apps.city',
-    'apps.departure_arrival',
     'apps.fligth',
     'apps.fligthHistory',
     'apps.itinerary',
