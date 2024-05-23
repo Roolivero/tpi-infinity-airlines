@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.city',
     'apps.fligth',
     'apps.fligthHistory',
+    'apps.globalTemplates',
     'apps.itinerary',
     'apps.plane',
     'apps.route',
