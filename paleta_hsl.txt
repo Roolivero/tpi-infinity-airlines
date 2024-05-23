@@ -1,0 +1,5 @@
+hsl(223, 80%, 63%) azul cobalto
+hsl(196, 72%, 72%) celeste
+hsl(201, 78%, 64%) water
+hsl(227, 42%, 83%) gris
+hsl(262, 55%, 60%) violetita
