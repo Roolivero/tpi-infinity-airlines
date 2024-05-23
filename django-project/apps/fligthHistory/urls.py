@@ -5,4 +5,5 @@ from .views import SearchFligth, FligthQuery
 urlpatterns = [
     path('searchFligth/', SearchFligth.template, name='search_fligth'),
     path('queryFligth/', FligthQuery.template , name='query_fligth'),
+    path('bootstrap/' , SearchFligth.templateBootstrap, name ='test_fligth'),
 ]

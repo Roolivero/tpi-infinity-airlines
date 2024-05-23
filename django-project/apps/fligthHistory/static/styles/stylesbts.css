@@ -1,0 +1,32 @@
+
+
+#map { 
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /*filter: blur(1px);*/
+}
+
+
+
+#main_container {
+    background-color: hsl(227, 42%, 83%, 0.6);
+    text-align: center;
+    backdrop-filter: blur(8px) ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    height: 80vh;
+    width: 80vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vh;
+}
+
+h1 {
+    color:hsl(262, 55%, 60%);
+    margin-top: 10vh;
+}
