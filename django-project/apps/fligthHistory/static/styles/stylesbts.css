@@ -30,3 +30,8 @@ h1 {
     color:hsl(262, 55%, 60%);
     margin-top: 10vh;
 }
+
+
+#submit {
+    background-color: hsl(262, 55%, 60%);
+}
