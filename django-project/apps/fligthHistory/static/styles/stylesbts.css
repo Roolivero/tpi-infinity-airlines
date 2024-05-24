@@ -24,6 +24,7 @@
     margin-left: 10vw;
     margin-right: 10vw;
     padding-top: 10vh;
+    flex-direction: column;
 }
 
 h1 {
@@ -31,6 +32,41 @@ h1 {
     margin-top: 10vh;
 }
 
+
+h2 {
+    font-size: 28px;
+}
+
+#form_container {
+    display: flex; /* Utiliza flexbox para disposición horizontal */
+    flex-direction: row;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    margin-top: 20px;
+    background-color: hsl(227, 42%, 83%);
+    border:2px solid hsl(262, 55%, 60%);
+    flex-wrap: wrap;
+    border-radius: 8px;
+    padding-left: 0;
+}
+
+.row {
+    height: 10vh;
+}
+
+.col {
+    padding: 0px;
+    margin: 0px;
+}
+legend {
+    font-size: 15px;
+}
+input {
+    background-color: hsl(227, 42%, 83%);
+    border: 0px;
+    outline: 0px;
+    width: 50px;
+    font-size: 14px;
+}
 
 #submit {
     background-color: hsl(262, 55%, 60%);

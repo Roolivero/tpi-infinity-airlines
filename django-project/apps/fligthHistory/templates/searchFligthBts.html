@@ -23,21 +23,48 @@
 </head>
 <body>
   <div id="map"></div>
-  <div class='container-fluid ' id="main_container">
+  <div class='container-fluid' id="main_container">
     <h1>Infinity Airlines</h1>    
 
+    <h2>Buscar vuelos</h2>
     <form action="">
-      <fieldset>
-        <legend>
-          Origen
-        </legend>
-        <input type="text" name="Origen">
-      </fieldset>
+      <div class="container justify-content-center allign-items-center" id="form_container">
+        <div class="col">
+          <fieldset>
+            <legend>
+              Origen
+              <input type="text">
+            </legend>
+          </fieldset>
+        </div>
+        <div class="col">
+          <fieldset>
+            <legend>
+              Destino
+              <input type="text">
+            </legend>
+          </fieldset>
+        </div>
+        <fieldset>
+          <legend>
+            Ida
+            <input type="date">
+          </legend>
+        </fieldset>
+        <fieldset>
+          <legend>
+            Vuelta
+            <input type="date">
+          </legend>
+        </fieldset>
+      </div>
     </form>
 
     <button type="button" class="btn btn-primary" id="submit">Buscar</button>
 
   </div>
+
+
   
 
 
