@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static '/styles/stylesbts.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script> 
+    <title>Buscar vuelos</title>
+
+</head>
+<body>
+  <div id="map"></div>
+  <div class='container-fluid ' id="main_container">
+    <h1>Infinity Airlines</h1>    
+
+    <form action="">
+      <fieldset>
+        <legend>
+          Origen
+        </legend>
+        <input type="text" name="Origen">
+      </fieldset>
+    </form>
+
+    <button type="button" class="btn btn-primary" id="submit">Buscar</button>
+
+  </div>
+  
+
+
+  <script>
+        var map = L.map('map', {
+            zoomControl: false,
+            dragging: false,
+            scrollWheelZoom: false,
+            doubleClickZoom: false,
+            boxZoom: false,
+            touchZoom: false,
+            keyboard: false
+        } ).setView([20, 0], 2.7);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            id: 'neich/clumsoq4504fq01nwam0ygy3y', // ID del estilo personalizado de Mapbox
+            accessToken: 'pk.eyJ1IjoibmVpY2giLCJhIjoiY2x1bXNhM2RsMGVvYjJpb2s0ejFieTFuYiJ9.r1EQxxeuB0em9Rr_EGsJvA' // Token de acceso de Mapbox
+        }).addTo(map);
+    </script>
+</body>
+</html>

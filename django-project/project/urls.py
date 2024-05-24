@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from apps.fligth.views import create_fligth
+from apps.globalTemplates.views import LandingView
 
 urlpatterns = [
+    path('home/', LandingView.template, name='home'),
     path('admin/', admin.site.urls),
     #path('create-fligth/', create_fligth, name='create_fligth'),
     path('fligth/', include('apps.fligthHistory.urls'), name='fligth'),
