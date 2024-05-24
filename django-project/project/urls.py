@@ -21,5 +21,6 @@ from apps.fligth.views import create_fligth
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('create-fligth/', create_fligth, name='create_fligth'),
-    path('fligth/', include('apps.fligthHistory.urls'), name='fligth')
+    path('fligth/', include('apps.fligthHistory.urls'), name='fligth'),
+    path('',include('apps.user.urls'), name='login')
 ]
