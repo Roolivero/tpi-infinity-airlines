@@ -10,9 +10,16 @@
 <body>
 
     <h2>Bienvenidos a Infinity Airlines</h2>
-<div class="container" id="container">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form id="multiStepForm" method="POST" action="login">
+        <form id="multiStepForm" method="POST" action="{% url 'register' %}">
             {% csrf_token %}
             <div class="step-row">
                 <div id="progress"></div>
@@ -56,10 +63,11 @@
         
     </div>
     <div class="form-container sign-in-container">
-        <form action="#">
+        <form method='POST' action="{% url 'login' %}">
+            {% csrf_token %}
             <h1>Sign in</h1>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <button>Sign In</button>
         </form>
