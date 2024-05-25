@@ -77,5 +77,5 @@
 - Si hay nuevas nuevas dependencias para instalarlas en el contenedor hay que usar el siguiente comando
     ```bash
     docker compose down # si esta abierto
-    docker compose up --build -d 
+    docker compose up --build -d
     ```

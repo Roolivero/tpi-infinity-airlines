@@ -8,35 +8,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infinity Airlines</title>
-    <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> 
+    <link rel="stylesheet" href="{% static 'styles/landing.css' %}"> 
     <title>Infinity Airlines</title>
 
 </head>
 <body>
-    <div id="map"></div>
     <div id="content" > 
         <h1> Infinity Airlines </h1>
         <button class="button">Registrarse</button>
         <button class="button">Iniciar sesión</button>
     </div>  
-    <script>
-        var map = L.map('map', {
-            zoomControl: false,
-            dragging: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            boxZoom: false,
-            touchZoom: false,
-            keyboard: false
-        } ).setView([20, 0], 2.7);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            id: 'neich/clumsoq4504fq01nwam0ygy3y', // ID del estilo personalizado de Mapbox
-            accessToken: 'pk.eyJ1IjoibmVpY2giLCJhIjoiY2x1bXNhM2RsMGVvYjJpb2s0ejFieTFuYiJ9.r1EQxxeuB0em9Rr_EGsJvA' // Token de acceso de Mapbox
-        }).addTo(map);
-    </script>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="{% static 'imagenes/dubai.webp %'}" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+        <img src="..." class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+        <img src="..." class="d-block w-100">
+        </div>
+    </div>
+    </div>
 </body>
 </html>
