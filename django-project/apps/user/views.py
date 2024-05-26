@@ -1,8 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from .forms import UserForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
 
 class UserView:
     
@@ -12,7 +11,7 @@ class UserView:
             if form.is_valid():
                 form.save()
                 messages.success(request, 'User registered successfully!')
-                return redirect('register')
+                return redirect(reverse('register'))
         else:
             form = UserForm()
         return render(request, 'login.html', {'form': form})
@@ -21,15 +20,12 @@ class UserView:
         if request.method == 'POST':
             email = request.POST['email']
             password = request.POST['password']
-            user = authenticate(request, email=email, password=password)
-            try:
-                user = User.objects.get(email=email)
-            except User.DoesNotExist:
-                user = None
-            if user is not None and user.check_password(password):
+            user = authenticate(email=email, password=password)
+            print(user)
+            if user is not None:
                 login(request, user)
-                return redirect('search_fligth')  # Redirige a la página principal o a la que desees
+                return redirect(reverse('search_fligth'))
             else:
-                messages.error(request, 'Invalid email or password')
+                messages.error(request, 'Invalid username or password')
         return render(request, 'login.html')
         

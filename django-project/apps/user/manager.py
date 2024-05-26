@@ -26,6 +26,18 @@ class UserManager(models.Manager):
             return True
         except ObjectDoesNotExist:
             return False
+        
+    def get_by_email(self, emial):
+        try:
+            return self.get(emial=emial)
+        except ObjectDoesNotExist:
+            return None
+        
+    def get_by_password(self, password):
+        try:
+            return self.get(password=password)
+        except ObjectDoesNotExist:
+            return None
 
     def list_all(self):
         return self.all()
