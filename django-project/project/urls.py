@@ -21,8 +21,9 @@ from apps.globalTemplates.views import LandingView
 
 urlpatterns = [
     path('home/', LandingView.template, name='home'),
+    path('api/v1/auth/', include('apps.user.urls')),
     path('admin/', admin.site.urls),
     #path('create-fligth/', create_fligth, name='create_fligth'),
     path('fligth/', include('apps.fligthHistory.urls'), name='fligth'),
-    path('',include('apps.user.urls'))
+    
 ]

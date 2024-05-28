@@ -1,0 +1,1 @@
+docker compose exec app pip install -r requirements.txt

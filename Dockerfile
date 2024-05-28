@@ -5,7 +5,7 @@ FROM python:latest
 WORKDIR /app
 
 # Install dependencies
-COPY ./requirements.txt ./requirements.txt
+COPY ./django-project/requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy the project code into the container

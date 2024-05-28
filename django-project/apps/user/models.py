@@ -1,16 +1,40 @@
 from django.db import models
 from .manager import UserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
-class User (models.Model):
-    name = models.CharField(max_length = 50)
-    last_name = models.CharField(max_length= 100)
-    dni = models.CharField(max_length=10, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=255, null=False, default='')
+class User(AbstractBaseUser, PermissionsMixin):
+    email= models.EmailField(max_length=50, unique=True, verbose_name=_('Email Address'))
+    first_name= models.CharField(max_length=255, verbose_name=_('First Name'))
+    last_name= models.CharField(max_length=255, verbose_name=_('Last Name'))
+    dni = models.IntegerField(unique=True, verbose_name=_('Document number'))
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
 
+    USERNAME_FIELD="email"
+
+    REQUIRED_FIELDS= ["first_name", "last_name", "dni"]
+
+    
     def __str__(self) -> str:
-        return f"{self.name} - {self.last_name} - {self.dni} - {self.email} - {self.password}"
+        return f"{self.email} - {self.first_name} - {self.last_name} - {self.dni}"
+    
+    @property
+    def get_full_name(self):
+        return f"{self.last_name} {self.first_name}"
+    
+
+class OneTimePassword(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    code = models.CharField()
+
+    def __str__(self) -> str:
+        return f"{self.user.first_name}-passcode"
