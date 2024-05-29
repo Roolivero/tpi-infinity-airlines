@@ -10,8 +10,13 @@ class UserManager(BaseUserManager):
             validate_email(email)
         except ValidationError:
             raise ValueError(_("Invalid email"))
+    
+    def confirm_password(self, password, password2):
+        if password != password2:
+            raise ValidationError("passwords do not match")
+        return password
         
-    def create_user(self, email, first_name, last_name, dni, password, **extra_fields):
+    def create_user(self, email, first_name, last_name, dni, password ):
         if email:
             email = self.normalize_email(email)
             self.email_validator(email)
@@ -22,12 +27,12 @@ class UserManager(BaseUserManager):
         if not last_name:
             raise ValueError(_("last name address is required"))
         if not dni:
-            raise ValueError(_("email address is required"))
+            raise ValueError(_("dni address is required"))
         
-        user = self.model(email=email, first_name=first_name, last_name=last_name, dni=dni, **extra_fields)
+        user = self.model(email=email, first_name=first_name, last_name=last_name, dni=dni)
 
         user.set_password(password)
-        user.save(using=self._db)
+        user.save(using=self._db)   
 
         return user
     
