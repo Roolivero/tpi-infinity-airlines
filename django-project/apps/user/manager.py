@@ -1,9 +1,9 @@
-from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import UserManager, BaseUserManager
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.core.validators import validate_email
 from django.utils.translation import gettext_lazy as _
 
-class UserManager(BaseUserManager):
+class CustomUserManager(BaseUserManager):
 
     def email_validator(self, email):
         try:
@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
             raise ValidationError("passwords do not match")
         return password
         
-    def create_user(self, email, first_name, last_name, dni, password ):
+    def create_user(self, email, first_name, last_name, dni, password, **extra_fields):
         if email:
             email = self.normalize_email(email)
             self.email_validator(email)
@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
         if not dni:
             raise ValueError(_("dni address is required"))
         
-        user = self.model(email=email, first_name=first_name, last_name=last_name, dni=dni)
+        user = self.model(email=email, first_name=first_name, last_name=last_name, dni=dni, **extra_fields)
 
         user.set_password(password)
         user.save(using=self._db)   
@@ -74,9 +74,9 @@ class UserManager(BaseUserManager):
         except ObjectDoesNotExist:
             return False
         
-    def get_by_email(self, emial):
+    def get_by_email(self, email):
         try:
-            return self.get(emial=emial)
+            return self.get(email=email)
         except ObjectDoesNotExist:
             return None
         
@@ -88,3 +88,5 @@ class UserManager(BaseUserManager):
 
     def list_all(self):
         return self.all()
+    
+    
