@@ -11,6 +11,7 @@ class Ticket(models.Model):
     fk_itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
     fk_user = models.ForeignKey(User, on_delete=models.CASCADE)
     fk_fligth = models.ForeignKey(Fligth, on_delete=models.CASCADE)
+    purchase_order = models.CharField(unique=True, max_length=20)
 
     objects = TicketManager()
 
