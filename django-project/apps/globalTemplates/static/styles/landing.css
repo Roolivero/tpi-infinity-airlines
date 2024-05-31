@@ -1,37 +1,12 @@
-.body {
-    background-color: aliceblue;
-    font-size: medium;
-    font-style: italic;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body {
+    background-color: rgb(204, 230, 245); 
     margin: 0;
-    text-align: center;
+    padding: 0;
+    overflow-x: hidden;  
+}
+#carousel{
+    width: 200px;
+    height: 200px;
 }
 
-#content {
-    text-align: center;
-}
 
-h1 {
-    margin-bottom: 20px;
-}
-
-.button {
-    background-color: #968bf4;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.button:hover {
-    background-color: #968bf4;
-    
-}
