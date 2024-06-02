@@ -1,20 +1,21 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
-
-class FligthManager(models.Manager):
-
-    def without_stopover(self):
-        return self.filter(stopver=False)
-
-    def with_stopover(self):
-        return self.filter(stopover=True)
+'''
+metodos para realizar:
+-listar todos
+-listar todos los vuelos que no salieron
+-listar todos los vuelos que si salieron
+-Realizar un queryset el cual me devuelva los vuelos dentro de un rango de fechas especifico
+'''
+class FlightHistoryManager(models.Manager):
     
-    def get_by_code(self, code_input):
-        return self.get(codigo=code_input)
-        
-    def code_exists(self, code_input) -> bool:
-        return self.filter(code=code_input).exists()
-    
+    #join con la tabla flight para ver los detalles
+    def list_all_with_flights(self):
+        return self.select_related('flight_set')
+
+    def flights_in_date_range(self, start_date, end_date):
+        return self.filter(date__range=(start_date, end_date)).prefetch_related('flight_set')
+
     def get_by_id(self, id):
         try:
             return self.get(pk=id)

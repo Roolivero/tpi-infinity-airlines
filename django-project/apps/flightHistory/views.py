@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
-class SearchFligth:
+class SearchFlight:
     def template(request):
-        return render(request, "searchFligth.html")
+        return render(request, "searchFlight.html")
     
     def templateBootstrap(request):
-        return render(request, "searchFligthBts.html")
+        return render(request, "searchFlightBts.html")
     
-class FligthQuery():
+class FlightQuery():
     def template(request):
         return render(request, "flightQuery.html" )

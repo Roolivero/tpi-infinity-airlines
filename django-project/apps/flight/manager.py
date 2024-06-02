@@ -1,21 +1,20 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
-'''
-metodos para realizar:
--listar todos
--listar todos los vuelos que no salieron
--listar todos los vuelos que si salieron
--Realizar un queryset el cual me devuelva los vuelos dentro de un rango de fechas especifico
-'''
-class FligthHistoryManager(models.Manager):
+
+class FlightManager(models.Manager):
+
+    def without_stopover(self):
+        return self.filter(stopver=False)
+
+    def with_stopover(self):
+        return self.filter(stopover=True)
     
-    #join con la tabla fligth para ver los detalles
-    def list_all_with_fligths(self):
-        return self.select_related('fligth_set')
-
-    def fligths_in_date_range(self, start_date, end_date):
-        return self.filter(date__range=(start_date, end_date)).prefetch_related('fligth_set')
-
+    def get_by_code(self, code_input):
+        return self.get(codigo=code_input)
+        
+    def code_exists(self, code_input) -> bool:
+        return self.filter(code=code_input).exists()
+    
     def get_by_id(self, id):
         try:
             return self.get(pk=id)

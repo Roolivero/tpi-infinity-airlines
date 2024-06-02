@@ -28,7 +28,7 @@ class UserViews:
                 destination =  get_redirect_if_exists(request)
                 if destination:
                     return redirect(destination)
-                return redirect('search_fligth')
+                return redirect('search_flight')
             else:
                 context['registration_form'] = form
 
@@ -46,7 +46,7 @@ class UserViews:
         user = request.user
 
         if user.is_authenticated: 
-            return redirect("search_fligth")
+            return redirect("search_flight")
         
         if request.POST:
             form = UserLoginForm(request.POST)
@@ -61,7 +61,7 @@ class UserViews:
                     destination = get_redirect_if_exists(request)
                     if destination:
                         return redirect(destination)
-                    return redirect('search_fligth')    
+                    return redirect('search_flight')    
             else:
                 context['login_form'] = form
 

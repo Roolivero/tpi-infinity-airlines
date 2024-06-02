@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Fligth
+from .models import Flight
 # Register your models here.
-admin.site.register(Fligth)
+admin.site.register(Flight)

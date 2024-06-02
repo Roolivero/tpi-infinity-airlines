@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FligthistoryConfig(AppConfig):
+class FlightistoryConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.fligthHistory'
+    name = 'apps.flightHistory'
