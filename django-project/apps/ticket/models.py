@@ -3,8 +3,9 @@ from apps.itinerary.models import Itinerary
 from apps.user.models import User
 from apps.flight.models import Flight
 from .manager import TicketManager
+from apps.flightHistory.models import FlightHistory
 class Ticket(models.Model):
-    flight_date = models.DateField()
+    fk_date = models.ForeignKey(FlightHistory, on_delete=models.CASCADE)
     ticket_class = models.CharField(max_length=50) #DEFINIR CONSTRAINT
     purchase_date = models.DateField()
     seat_location = models.CharField(max_length=50) # DEFINIR BIEN 
