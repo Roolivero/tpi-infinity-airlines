@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import SearchFlight, FlightQuery
+from .views.SearchFlight import SearchFlight
+from .views.FlightQuery import FlightQuery
 
 
 urlpatterns = [
@@ -7,3 +8,4 @@ urlpatterns = [
     path('queryFlight/', FlightQuery.template , name='query_flight'),
     path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
 ]
+    
