@@ -6,7 +6,4 @@ class SearchFlight:
     
     def templateBootstrap(request):
         return render(request, "searchFlightBts.html")
-    
-class FlightQuery():
-    def template(request):
-        return render(request, "flightQuery.html" )
+        
