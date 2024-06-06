@@ -29,16 +29,19 @@
     
     <div id="map"></div> 
     <div id="main_box">
-        <h1>Infinity Airlines</h1>
+        <h1 alt="">Infinity Airlines</h1>
 
         <h2>Buscar vuelos</h2>
 
 
         <div class="contenedor-formulario">
-                <form action="" class="formulario">
+                <form  class="formulario" method=POST action={% url 'results' %}>
+
+                    {% csrf_token %}
+
                     <fieldset>
-                    
-                        <div class="input-container"> 
+                        
+                        <div class="input-container" name="origin"> 
                             <div class="column">
                                 <legend>Origen</legend>
                                 <div class="svg-input">
@@ -46,7 +49,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <input type="text" name="origen" >
+                            <input type="text" name="origin">
                         </div>
     
                     </fieldset>
@@ -54,7 +57,7 @@
                             
                     <fieldset>
                         
-                        <div class="input-container"> 
+                        <div class="input-container" name="destiny"> 
                             <div class="column">
                                 <legend>Destino</legend>
                                 <div class="svg-input">
@@ -62,7 +65,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <input type="text" name="destino" >
+                            <input type="text" name="destiny" >
                         </div>
     
                     </fieldset>
@@ -80,7 +83,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <input type="date" id="fecha-partida" name="partida" >
+                            <input type="date" id="fecha-partida" name="date" >
                         </div>
                     </fieldset>
                     
@@ -98,9 +101,10 @@
                             <input type="date" id="fecha-regreso" name="regreso" >
                         </div>
                     </fieldset> {% endcomment %}
+                    <input type="submit" value="Buscar" alt="confirmar busqueda">
                 </form>
                 
-            <input type="submit" value="Buscar">
+            
         </div>
     </div>
 

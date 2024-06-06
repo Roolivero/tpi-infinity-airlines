@@ -1,11 +1,11 @@
 from django.urls import path
 from .views.SearchFlight import SearchFlight
-from .views.FlightQuery import FlightQuery
+from .views.FlightResults import FlightResults
 
 
 urlpatterns = [
     path('searchFlight/', SearchFlight.template, name='search_flight'),
-    path('queryFlight/', FlightQuery.template , name='query_flight'),
-    path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
+    path('queryFlight/', FlightResults.template , name='results'),
+    #path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
 ]
     
