@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'apps.flight',
     'apps.flightHistory',
     'apps.globalTemplates',
-    'apps.itinerary',
     'apps.plane',
     'apps.route',
     'apps.ticket',
@@ -149,8 +148,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = "user.User"
-
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = 'fc13569be84c4a'
-EMAIL_HOST_PASSWORD = '********7d7d'
-EMAIL_PORT = '2525'

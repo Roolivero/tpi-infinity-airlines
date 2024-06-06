@@ -136,7 +136,7 @@ legend {
 input[type="submit"] {
     margin: 2vw;
     padding: 5px 80px;
-    background-color: hsl(223, 80%, 63%); /* Color de fondo del botón */
+    background-color:  hsl(223, 80%, 63%); /* Color de fondo del botón */
     color: #000; /* Color del texto del botón */
     border: 3px solid hsl(262, 55%, 60%);
     border-radius: 5px;
@@ -144,7 +144,6 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover{
-    background-color: hsl(262, 55%, 60%);
     transition: 150ms;
     font-size: 29px;
 }

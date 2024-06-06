@@ -29,3 +29,4 @@ class TicketManager(models.Manager):
 
     def list_all(self):
         return self.all()
+    
