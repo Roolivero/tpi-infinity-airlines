@@ -1,40 +1,38 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load django_bootstrap5 %}
-    {% bootstrap_css %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Airlines</title>
-    <link rel="stylesheet" href="{% static 'styles/landing.css' %}"> 
-</head>
-<div><body class="container-fluid">
-    <div class="row">&nbsp;</div>
-    <div class="row justify-content-md-center">
-        <div class= "col-md-auto card">
+{% block link %}
+    <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
+{% endblock link %} 
+{% block content %}
+    <h1 class="mb-4">Infinity Airlines</h1>
+    <p class="mb-4">Somos inifinity Airlines,......</p>
+    <div class="d-flex justify-content-center">
+        <div class="card" >
             <div class="card-body">
-                <a href="#" class="btn btn-primary">Vuelos</a>
-                <a href="#" class="btn btn-secondary">Iniciar sesión</a>
-                <a href="#" class="btn btn-secondary">Mis reservas</a>
+                <div class="w-75 p-3" id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner" >
+                        <div class="carousel-item active">
+                            <img src="{% static 'imagenes/dubai.jpg' %}" class="d-block w-100" alt="Dubai" >
+                            <div class="card-description">
+                                <p class="card-text"> Dubai! </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'imagenes/finland.jpg' %}" class="d-block w-100" alt="Finland">
+                            <div class="card-description">
+                                <p class="card-text">Vuelos a finlandia! </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'imagenes/london.jpg' %}" class="d-block w-100" alt="Finland">
+                            <div class="card-description">
+                                <p class="card-text">Vola a londres por 1.200.000$ </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
             </div>
-        </div>
-    </div> 
-    <div> 
-        <!-- <div class="w-75 p-3" id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-            <div class="carousel-inner" >
-                <div class="carousel-item active">
-                    <img src="{% static 'imagenes/dubai.jpg' %}" class="d-block w-100" alt="Dubai" >
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'imagenes/finland.jpg' %}" class="d-block w-100" alt="Finland">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'imagenes/finland.jpg' %}" class="d-block w-100" alt="Finland">
-                </div>
-            </div>
-        </div> 
-    </div> -->
-    {% bootstrap_javascript %}
-</body>
-</html>
+    </div>
+{% endblock content %}
+
+

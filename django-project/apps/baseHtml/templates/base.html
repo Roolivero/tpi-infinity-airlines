@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block link %}
+        <link rel="stylesheet" href="{% static 'styles/layout.css' %}"> 
+    {% endblock link %} 
+    <title>{% block title %} Infinity Airlines {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Infinity Airlines</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Buscar vuelos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Iniciar sesión</a>
+                        </li>
+                        {% comment %} {% if loggeado %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Mis reservas</a>
+                            </li>
+                        {% endif %} {% endcomment %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main> 
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer class="position-absolute bottom-0 start-0">
+        <div class="card">
+            <div class="card-body">
+                <p>Informacion de contacto: </p>
+                <p>Telefono: +542901583765 </p>
+                <p>Mail: infinityAirlines@travel.com.ar </p>
+            </div>
+        </div>
+    </footer>
+    {% bootstrap_javascript %}
+</body>
+</html>

@@ -1,12 +1,14 @@
 body {
-    background-color: rgb(204, 230, 245); 
+    background-color: rgb(149, 5, 110); 
     margin: 0;
     padding: 0;
     overflow-x: hidden;  
 }
-#carousel{
-    width: 200px;
-    height: 200px;
+
+.card {
+    width: 55rem; 
+    height: 40rem; 
+    margin: auto; 
 }
 
 

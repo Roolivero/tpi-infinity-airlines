@@ -6,4 +6,3 @@ class SearchFlight:
     
     def templateBootstrap(request):
         return render(request, "searchFlightBts.html")
-        

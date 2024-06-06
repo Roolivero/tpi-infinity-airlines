@@ -19,6 +19,7 @@ from django.urls import path, include
 #from apps.flight.views import create_flight
 from apps.globalTemplates.views import LandingView
 
+
 urlpatterns = [
     path("", include('apps.user.urls')),
     path('home/', LandingView.template, name='home'),
