@@ -41,3 +41,7 @@ class FlightManager(models.Manager):
 
     def list_all(self):
         return self.all()
+    
+    def get_by_route_date(self, origin, destiny, date):
+        
+        return self.objects.select_related('flight_history', 'fk_route').filter(fk_airport_departure=origin, fk_airport_arrival=destiny, date=date)
