@@ -5,8 +5,8 @@
     {% bootstrap_css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'baseHtml/styles/baseHtml.css' %}"> 
     {% block link %}
-        <link rel="stylesheet" href="{% static 'styles/layout.css' %}"> 
     {% endblock link %} 
     <title>{% block title %} Infinity Airlines {% endblock %}</title>
 </head>
@@ -37,16 +37,14 @@
         </nav>
     </header>
     <main> 
-        {% block content %}
+        {% block content %} 
         {% endblock content %}
     </main>
-    <footer class="position-absolute bottom-0 start-0">
-        <div class="card">
-            <div class="card-body">
-                <p>Informacion de contacto: </p>
-                <p>Telefono: +542901583765 </p>
-                <p>Mail: infinityAirlines@travel.com.ar </p>
-            </div>
+    <footer>
+        <div>
+            <p>Informacion de contacto: </p>
+            <p>Telefono: +542901583765 </p>
+            <p>Mail: infinityAirlines@travel.com.ar </p>
         </div>
     </footer>
     {% bootstrap_javascript %}
