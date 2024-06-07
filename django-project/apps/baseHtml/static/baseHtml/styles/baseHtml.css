@@ -1,7 +1,18 @@
-nav {
-    background-color: rgb(204, 245, 237); 
+.navbar-custom {
+    background-color: #355cc8c5;
+}
+
+.navbar-custom .nav-link:hover {
+    background-color: rgba(204, 207, 244, 0.428); 
+    color: white;
+    border-radius: 5px; 
+}
+
+body{
+    background-color: #c7dff9;
 }
 
 footer{
-    background-color: rgb(204, 245, 237); 
+    background-color: #355cc8c5; 
+    width: 90rem;
 }
