@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 
 class TicketManager(models.Manager):
 
@@ -36,3 +37,5 @@ class TicketManager(models.Manager):
         TicketManager.purchase_number = TicketManager.purchase_number + 1
         return  TicketManager.purchase_number
     
+    def get_by_user(self,user):
+        return self.select_related('fk_user').filter(Q (fk_user=user))

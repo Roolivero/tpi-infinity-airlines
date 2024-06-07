@@ -35,3 +35,10 @@ class PurchaseTicket():
             form = PurchaseTicketForm()
         
         return render(request, 'purchaseTicket.html', {'flight': flight, 'form' : form})
+    def template(request):
+        render(request, 'purchaseTicket.html')
+        
+        
+class MyTickets():
+    def template(request):
+        render(request='myTickets.html')
