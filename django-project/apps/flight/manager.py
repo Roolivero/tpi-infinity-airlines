@@ -59,7 +59,7 @@ class FlightManager(models.Manager):
     )
 
     def calculate_available_tickets(self, flight):
-         match flight.fk_flight_history.fk_plane.plane_model:
+         match flight.fk_flight_history.fk_plane.size:
             case 'chico':
                 return 50 - flight.fk_flight_history.sold_ticket
             case 'grande':

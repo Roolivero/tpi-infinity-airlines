@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from apps.flightHistory.forms import QueryFlight
+from apps.flightHistory.forms import QueryFlightForm
 from apps.flight.models import Flight
 
 class FlightResults():
     def template(request):
         if request.POST:
 
-            flight_query = QueryFlight(request.POST)
+            flight_query = QueryFlightForm(request.POST)
 
             if flight_query.is_valid():
                 
@@ -14,7 +14,7 @@ class FlightResults():
                 destiny = flight_query.cleaned_data['destiny']
                 date = flight_query.cleaned_data['date']
                 
-
+                
                 result = Flight.objects.get_by_route_and_date(origin, destiny, date)
 
                 for flight in result:

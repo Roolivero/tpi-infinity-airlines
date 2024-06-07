@@ -3,6 +3,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class TicketManager(models.Manager):
 
+    purchase_number = 0
+
     def get_by_id(self, id):
         try:
             return self.get(pk=id)
@@ -29,4 +31,8 @@ class TicketManager(models.Manager):
 
     def list_all(self):
         return self.all()
+    
+    def get_purchase_number():
+        TicketManager.purchase_number = TicketManager.purchase_number + 1
+        return  TicketManager.purchase_number
     
