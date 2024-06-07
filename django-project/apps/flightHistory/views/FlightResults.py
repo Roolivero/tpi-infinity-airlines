@@ -16,8 +16,11 @@ class FlightResults():
                 
 
                 result = Flight.objects.get_by_route_and_date(origin, destiny, date)
-                
 
+                for flight in result:
+                    for flight in result:
+                        flight.available_tickets = Flight.objects.calculate_available_tickets(flight)
+                
                 return render(request, "results.html", {"result": result} )
         
-        return render(request, "results.html" )
+        return render(request, "results.html" )     

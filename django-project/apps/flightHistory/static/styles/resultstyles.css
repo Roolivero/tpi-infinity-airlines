@@ -1,25 +1,7 @@
-#app {
-    display: grid;
-    grid-template-areas: 
-        "aside main main"
-        "footer footer footer";
-    grid-template-columns: 350px 1fr;
-    grid-template-rows: 1fr auto ;
-}
-
 .aside {
-    grid-area: aside;
-    background-color: rgb(226, 43, 49);
-    height: 80vh;
+    width: 20%;
 }
 
 .main {
-    grid-area: main;
-    background-color: aqua;
-}
-
-.footer {
-    grid-area: footer;
-    background-color: rgb(174, 255, 0);
-    height: 20vh;
+    width: 80%;
 }

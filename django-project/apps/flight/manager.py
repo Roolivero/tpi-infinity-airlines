@@ -57,3 +57,12 @@ class FlightManager(models.Manager):
             Q(fk_route__fk_airport_arrival__fk_city__name__iexact=destiny),  # OR
             fk_flight_history__date=date  # AND
     )
+
+    def calculate_available_tickets(self, flight):
+         match flight.fk_flight_history.fk_plane.plane_model:
+            case 'chico':
+                return 50 - flight.fk_flight_history.sold_ticket
+            case 'grande':
+                return 120 - flight.fk_flight_history.sold_ticket
+            case _: #es mediano
+                return 70 - flight.fk_flight_history.sold_ticket

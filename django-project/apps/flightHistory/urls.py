@@ -4,8 +4,8 @@ from .views.FlightResults import FlightResults
 
 
 urlpatterns = [
-    path('searchFlight/', SearchFlight.template, name='search_flight'),
-    path('queryFlight/', FlightResults.template , name='results'),
+    path('search_flight/', SearchFlight.template, name='search_flight'),
+    path('query_flight/', FlightResults.template , name='results'),
     #path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
 ]
     

@@ -12,7 +12,9 @@ body {
 #map { 
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: absolute;input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+    }
     top: 0;
     left: 0;
     z-index: -1;
@@ -120,6 +122,9 @@ legend {
     height: 40px;
     font-size: 12px;
     margin-top: 10px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
 }
 
 .formulario input[type="date"] {

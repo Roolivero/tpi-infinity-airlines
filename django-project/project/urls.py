@@ -21,10 +21,11 @@ from apps.globalTemplates.views import LandingView
 
 
 urlpatterns = [
-    path("", include('apps.user.urls')),
     path('home/', LandingView.template, name='home'),
     path('admin/', admin.site.urls),
     #path('create-flight/', create_flight, name='create_flight'),
-    path('flight/', include('apps.flightHistory.urls'), name='flight'),
+    path('', include('apps.flightHistory.urls')),
+    path('', include('apps.user.urls')),
+    path('', include('apps.ticket.urls'))
     
 ]
