@@ -13,7 +13,7 @@ class PurchaseTicketForm(forms.Form):
     TICKET_CLASS_CHOICES = [
         ('first', 'First'),
         ('second', 'Second'),
-        ('Third', 'First third'),
+        ('Third', 'Third'),
     ]
 
     SEAT_LOCATION_CHOICES = [

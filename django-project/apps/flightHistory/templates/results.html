@@ -10,22 +10,23 @@
 {% block content%}
     <div class="container-fluid vh-100% p-0 d-flex">
         <aside class="aside bg-primary p-3 vh-100%">
-            aside
+            Ordenar por:
         </aside>
 
         <main class="main flex-grow-1">
             <div class="container">
                 {% if result %}
                 {% for result in result  %}
-                <div class="card mb-3 mt-3">
+                <a href="{% url 'purchase' result.id %}" class="card-link" alt="buy">
+                <div class="card mb-3 mt-3" id="card">
                     <div>
-                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-header d-flex justify-content-between align-items-center" id="card_header">
                             {{ result.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_flight.fk_route.fk_airport_arrival.airport_code}} 
                             <span> Departure time {{result.fk_flight.departure_time}}</span>
                         </h5>
                     </div>
                     
-                    <div class="card-body">
+                    <div class="card-body" >
                         <h5 class="card-title">PRICE ${{ result.fk_flight.ticket_price }}</h5>
                         <p class="card-text">
                             <span>Origin:</span> {{ result.fk_flight.fk_route.fk_airport_departure.fk_city.name }} -> 
@@ -37,6 +38,8 @@
                             <a href="{% url 'purchase' result.id %}" class="btn btn-primary">Purchase</a>
                         </div>
                     </div>
+                </a>
+                    
                 </div>
                 {% endfor %} 
                 {% else %}
@@ -46,3 +49,7 @@
         </main>
     </div>
 {% endblock %}
+
+{% block footer %}
+<!-- No footer -->
+{% endblock footer %}

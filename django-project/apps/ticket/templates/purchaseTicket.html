@@ -3,15 +3,17 @@
 {%block link%}
 
     <link rel="stylesheet" href="{% static '/styles/purchasestyles.css' %}">
+    
     <title>Purchase Ticket</title>
 {% endblock link%}
 {% block content %}
     
+    
     <div class="container h-100%">
         <h1>Purchase Ticket</h1>
-        <div class="card mb-3 mt-3">
+        <div class="card mb-3 mt-3" id="card">
             <div>
-                <h5 class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-header d-flex justify-content-between align-items-center" id="card_header">
                     {{ flight.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{ flight.fk_flight.fk_route.fk_airport_arrival.airport_code }} 
                     <span> Departure time {{ flight.fk_flight.departure_time }}</span>
                 </h5>
@@ -28,16 +30,41 @@
                 </div>
             </div>
         </div>
+        <!-- aca deberia ir la logica de suma -->
 
-        <form method="post">
+
+        <form method="post" class="m-5">
             {% csrf_token %}
-            {{ form.as_p}}
-            <div class="d-flex justify-content-end">
-                <a type="submit" class="btn btn-success">Confirm purchase</a>
-            </div>  
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        Quantity
+                        {{form.quantity}}
+                    </div>
+                    <div class="col">
+                        Class
+                        {{form.ticket_class}}
+                    </div>
+    
+                    <div class="col">
+                        Seat location
+                        {{form.seat_location}}
+                    </div>
+            </div>
+                <div class="col d-flex justify-content-end mt-5">
+                    <a type="submit" class="btn btn-success">Confirm purchase</a>
+                </div>  
+            </div>
+            
+            
+            
             
         </form>
         
         
     </div>
 {% endblock %}
+
+{% block footer %}
+<!-- No footer -->
+{% endblock footer %}
