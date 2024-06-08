@@ -20,16 +20,16 @@
                 <div class="card mb-3 mt-3">
                     <div>
                         <h5 class="card-header d-flex justify-content-between align-items-center">
-                            {{ result.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_route.fk_airport_arrival.airport_code}} 
-                            <span> Departure time {{result.departure_time}}</span>
+                            {{ result.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_flight.fk_route.fk_airport_arrival.airport_code}} 
+                            <span> Departure time {{result.fk_flight.departure_time}}</span>
                         </h5>
                     </div>
                     
                     <div class="card-body">
-                        <h5 class="card-title">PRICE ${{ result.ticket_price }}</h5>
+                        <h5 class="card-title">PRICE ${{ result.fk_flight.ticket_price }}</h5>
                         <p class="card-text">
-                            <span>Origin:</span> {{ result.fk_route.fk_airport_departure.fk_city.name }} -> 
-                            <span>Destiny:</span> {{ result.fk_route.fk_airport_arrival.fk_city.name }}
+                            <span>Origin:</span> {{ result.fk_flight.fk_route.fk_airport_departure.fk_city.name }} -> 
+                            <span>Destiny:</span> {{ result.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}
                             
                         </p>
                         <div class="d-flex justify-content-between align-items-center">

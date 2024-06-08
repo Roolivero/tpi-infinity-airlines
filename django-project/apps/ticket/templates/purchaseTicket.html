@@ -12,15 +12,15 @@
         <div class="card mb-3 mt-3">
             <div>
                 <h5 class="card-header d-flex justify-content-between align-items-center">
-                    {{ flight.fk_route.fk_airport_departure.airport_code}} --> {{ flight.fk_route.fk_airport_arrival.airport_code }} 
-                    <span> Departure time {{ flight.departure_time }}</span>
+                    {{ flight.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{ flight.fk_flight.fk_route.fk_airport_arrival.airport_code }} 
+                    <span> Departure time {{ flight.fk_flight.departure_time }}</span>
                 </h5>
             </div>
             <div class="card-body">
-                <h5 class="card-title">PRICE ${{ flight.ticket_price }}</h5>
+                <h5 class="card-title">PRICE ${{ flight.fk_flight.ticket_price }}</h5>
                 <p class="card-text">
-                    <span>Origin:</span> {{ flight.fk_route.fk_airport_departure.fk_city.name }} -> 
-                    <span>Destiny:</span> {{ flight.fk_route.fk_airport_arrival.fk_city.name }}
+                    <span>Origin:</span> {{ flight.fk_flight.fk_route.fk_airport_departure.fk_city.name }} -> 
+                    <span>Destiny:</span> {{ flight.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div>Tickets: {{ flight.available_tickets }}</div>

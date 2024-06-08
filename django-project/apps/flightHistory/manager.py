@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 '''
 metodos para realizar:
 -listar todos
@@ -42,3 +43,23 @@ class FlightHistoryManager(models.Manager):
 
     def list_all(self):
         return self.all()
+    
+
+    def get_by_route_and_date(self, origin, destiny, date):
+
+        return self.select_related('fk_flight').filter(
+            Q(fk_flight__fk_route__fk_airport_departure__airport_code__iexact=origin) | 
+            Q(fk_flight__fk_route__fk_airport_departure__fk_city__name__iexact=origin), 
+            Q(fk_flight__fk_route__fk_airport_arrival__airport_code__iexact=destiny) | 
+            Q(fk_flight__fk_route__fk_airport_arrival__fk_city__name__iexact=destiny), 
+            date=date
+        )
+    
+    def calculate_available_tickets(self, flight):
+         match flight.fk_plane.size:
+            case 'chico':
+                return 50 - flight.sold_ticket
+            case 'grande':
+                return 120 - flight.sold_ticket
+            case _: #es mediano
+                return 70 - flight.sold_ticket

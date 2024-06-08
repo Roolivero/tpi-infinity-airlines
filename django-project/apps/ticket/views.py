@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from apps.flight.models import Flight
+from apps.flightHistory.models import FlightHistory
 from django.contrib.auth.decorators import login_required
 from .models import Ticket
 from .forms import PurchaseTicketForm
@@ -10,9 +10,9 @@ from datetime import timezone
 
 class PurchaseTicket():
     def template(request, flight_id):
-        flight = get_object_or_404(Flight, id=flight_id)
+        flight = get_object_or_404(FlightHistory, id=flight_id)
         
-        flight.available_tickets = Flight.objects.calculate_available_tickets(flight)
+        flight.available_tickets = FlightHistory.objects.calculate_available_tickets(flight)
 
         if request.method == 'POST':
             form = PurchaseTicketForm(request.POST)

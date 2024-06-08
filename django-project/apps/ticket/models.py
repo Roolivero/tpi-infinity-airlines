@@ -4,7 +4,10 @@ from apps.flight.models import Flight
 from .manager import TicketManager
 from apps.flightHistory.models import FlightHistory
 class Ticket(models.Model):
-    fk_date = models.ForeignKey(FlightHistory, on_delete=models.CASCADE)
+    '''
+    Ticket almacena la informacion del pasaje y de la compra. Afecta a el vuelo especifco code(flight) + date
+    '''
+    fk_flight_history = models.ForeignKey(FlightHistory, on_delete=models.CASCADE) #se utiliza para la fecha
     TYPE =[
         ('first', 'first'),
         ('second', 'second'),
@@ -16,6 +19,7 @@ class Ticket(models.Model):
     fk_user = models.ForeignKey(User, on_delete=models.CASCADE)
     fk_flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
     purchase_order = models.CharField(unique=True, max_length=20)
+    buy_total_price = models.FloatField(null=False)
 
     objects = TicketManager()
 
