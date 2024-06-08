@@ -9,7 +9,6 @@ from datetime import timezone
 
 
 class PurchaseTicket():
-    @login_required
     def template(request, flight_id):
         flight = get_object_or_404(Flight, id=flight_id)
         
@@ -35,8 +34,6 @@ class PurchaseTicket():
             form = PurchaseTicketForm()
         
         return render(request, 'purchaseTicket.html', {'flight': flight, 'form' : form})
-    def template(request):
-        render(request, 'purchaseTicket.html')
         
         
 class MyTickets():
