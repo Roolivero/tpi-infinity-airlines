@@ -37,5 +37,5 @@ class TicketManager(models.Manager):
         TicketManager.purchase_number = TicketManager.purchase_number + 1
         return  TicketManager.purchase_number
     
-    def get_by_user(self,user):
-        return self.select_related('fk_user').filter(Q (fk_user=user))
+    def for_user(self, user):
+        return self.filter(fk_user=user)

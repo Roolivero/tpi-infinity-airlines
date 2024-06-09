@@ -1,48 +1,63 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load django_bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <main class="main flex-grow-1">
-        <div class="container">
-            {% if result %}
-            {% for result in result  %}
-            <div class="card mb-3 mt-3">
-                <div>
-                    <h5 class="card-header d-flex justify-content-between align-items-center">
-                        {{ result.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_route.fk_airport_arrival.airport_code}} 
-                        <span> Departure time {{result.departure_time}}</span>
-                    </h5>
-                </div>
-                
-                <div class="card-body">
-                    <h5 class="card-title">PRICE ${{ result.ticket_price }}</h5>
-                    <p class="card-text">
-                        <span>Origin:</span> {{ result.fk_route.fk_airport_departure.fk_city.name }} -> 
-                        <span>Destiny:</span> {{ result.fk_route.fk_airport_arrival.fk_city.name }}
-                        
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>Tickets: {{ result.available_tickets }}</div>
-                        <a href="#" class="btn btn-primary">Purchase</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %} 
-            {% else %}
-            <h1>No results found</h1>
-            {% endif %}
-        </div>
-    </main>
+{% block link%}
+    <link rel="stylesheet" href="{% static 'styles/ticketsyle.css' %}">
+    <title>Mis Tickets</title>
+{% endblock link%}
 
-</body>
-</html>
+{% block content%}
+    <div class="container-fluid vh-100 p-0 d-flex">
+        <aside class="aside bg-primary p-3 vh-100">
+            Ordenar por:
+            <!-- Aquí puedes agregar opciones de filtro/ordenación -->
+        </aside>
+
+        <main class="main flex-grow-1">
+            <div class="container">
+                {% if tickets %}
+                    {% for ticket in tickets %}
+                        <div class="card mb-3 mt-3" id="card">
+                            <div>
+                                <h5 class="card-header d-flex justify-content-between align-items-center" id="card_header">
+                                    {{ ticket.fk_flight.fk_route.fk_airport_departure.airport_code }} 
+                                    --> 
+                                    {{ ticket.fk_flight.fk_route.fk_airport_arrival.airport_code }} 
+                                    <span>Departure time: {{ ticket.fk_flight.departure_time }}</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">PRICE: ${{ ticket.buy_total_price }}</h5>
+                                <p class="card-text">
+                                    <span>Origin:</span> 
+                                    {{ ticket.fk_flight.fk_route.fk_airport_departure.fk_city.name }} 
+                                    -> 
+                                    <span>Destination:</span> 
+                                    {{ ticket.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}
+                                    <br>
+                                    <span>Class:</span> 
+                                    {{ ticket.ticket_class }}
+                                    <br>
+                                    <span>Seat:</span> 
+                                    {{ ticket.seat_location }}
+                                    <br>
+                                    <span>Purchase Date:</span> 
+                                    {{ ticket.purchase_date }}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>Purchase Order: {{ ticket.purchase_order }}</div>
+                                    <a href="{% url 'purchase' ticket.id %}" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h1>No tickets found</h1>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block footer %}
+<!-- No footer -->
+{% endblock footer %}

@@ -5,7 +5,8 @@ from django.contrib import messages
 from .models import Ticket
 from .forms import PurchaseTicketForm
 from datetime import timezone
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
 # Create your views here.
 
 
@@ -43,6 +44,10 @@ class PurchaseTicket():
         return render(request, 'purchaseTicket.html', {'flight': flight, 'form' : form})
         
         
-class MyTickets():
-    def template(request):
-        render(request='myTickets.html')
+class UserTicketsView(LoginRequiredMixin, ListView):
+    model = Ticket
+    template_name = 'myTickets.html'
+    context_object_name = 'tickets'
+
+    def get_queryset(self):
+        return Ticket.objects.for_user(self.request.user)

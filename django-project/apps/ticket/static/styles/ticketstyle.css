@@ -1,0 +1,37 @@
+
+.aside {
+    width: 20%;
+    height: 100vh;
+}
+
+.main {
+    width: 80%;
+}
+
+a {
+    text-decoration: none; /* Quitar el subrayado */
+    color: inherit; /* Mantener el color del texto */
+    cursor: focus; /* Eliminar el cursor de enlace */
+}
+
+.card-link {
+    color: inherit; /* Mantener el color del texto */
+    cursor: focus; /* Eliminar el cursor de enlace */
+}
+
+#card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+    transition: background-color 0.3s ease;
+}
+
+#card:hover{
+    background-color: rgba(70, 70, 70, 0.1);
+}
+
+#card_header {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 36%, rgba(73,144,221,1) 66%); 
+}
+
+
+
