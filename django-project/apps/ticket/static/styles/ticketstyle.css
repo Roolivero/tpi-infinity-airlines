@@ -11,12 +11,12 @@
 a {
     text-decoration: none; /* Quitar el subrayado */
     color: inherit; /* Mantener el color del texto */
-    cursor: focus; /* Eliminar el cursor de enlace */
+    cursor: focus; 
 }
 
 .card-link {
     color: inherit; /* Mantener el color del texto */
-    cursor: focus; /* Eliminar el cursor de enlace */
+    cursor: focus; 
 }
 
 #card {

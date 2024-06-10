@@ -33,7 +33,7 @@
         <!-- aca deberia ir la logica de suma -->
 
 
-        <form method="post" class="m-5">
+        <form method=POST class="m-5" action={% url 'purchase' %} >
             {% csrf_token %}
             <div class="container-fluid">
                 <div class="row">

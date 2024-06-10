@@ -21,7 +21,7 @@
                 <div class="card mb-3 mt-3" id="card">
                     <div>
                         <h5 class="card-header d-flex justify-content-between align-items-center" id="card_header">
-                            {{ result.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_flight.fk_route.fk_airport_arrival.airport_code}} 
+                            {{result.fk_flight.code}}  {{ result.fk_flight.fk_route.fk_airport_departure.airport_code}} --> {{result.fk_flight.fk_route.fk_airport_arrival.airport_code}} 
                             <span> Departure time {{result.fk_flight.departure_time}}</span>
                         </h5>
                     </div>
