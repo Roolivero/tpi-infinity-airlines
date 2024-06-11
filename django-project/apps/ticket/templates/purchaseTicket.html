@@ -33,7 +33,7 @@
         <!-- aca deberia ir la logica de suma -->
 
 
-        <form method=POST class="m-5" action={% url 'purchase' %} >
+        <form class="m-5" method=POST action={% url 'purchase_confirmation' flight.id %} >
             {% csrf_token %}
             <div class="container-fluid">
                 <div class="row">
@@ -47,17 +47,14 @@
                     </div>
     
                     <div class="col">
-                        Seat location
+                        Location
                         {{form.seat_location}}
                     </div>
             </div>
                 <div class="col d-flex justify-content-end mt-5">
-                    <a type="submit" class="btn btn-success">Confirm purchase</a>
+                    <button type="submit" class="btn btn-success">Confirm purchase</button>
                 </div>  
             </div>
-            
-            
-            
             
         </form>
         

@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
+from random import randint
 
 class TicketManager(models.Manager):
 
@@ -33,9 +33,23 @@ class TicketManager(models.Manager):
     def list_all(self):
         return self.all()
     
-    def get_purchase_number():
-        TicketManager.purchase_number = TicketManager.purchase_number + 1
-        return  TicketManager.purchase_number
+    
+    def get_new_purchase_number(self):
+        purchase_number  = randint(0, 100000)
+        return purchase_number
     
     def for_user(self, user):
         return self.filter(fk_user=user)
+    
+    def calculate_total_price(self, ticket_price, quantity, ticket_class):
+        
+        match ticket_class:
+            case 'first': 
+                ticket_class = 120
+            case 'second':
+                ticket_class = 50
+            case _:
+                ticket_class = 0
+                
+        return (ticket_price + float(ticket_class)) * quantity
+

@@ -32,10 +32,10 @@
                             <span>Origin:</span> {{ result.fk_flight.fk_route.fk_airport_departure.fk_city.name }} -> 
                             <span>Destiny:</span> {{ result.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}
                             
-                        </p>
+                       </p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>Tickets: {{ result.available_tickets }}</div>
-                            <a href="{% url 'purchase' result.id %}" class="btn btn-primary">Purchase</a>
+                            <a href="{% url 'purchase' result.id %}" class="btn btn-primary">Continue</a>
                         </div>
                     </div>
                 </a>
