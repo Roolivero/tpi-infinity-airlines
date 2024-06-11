@@ -1,12 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from apps.flightHistory.models import FlightHistory
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Ticket
-from .forms import PurchaseTicketForm
+from ..models import Ticket
+from ..forms import PurchaseTicketForm
 from datetime import timezone
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
 # Create your views here.
 
 
@@ -43,11 +40,3 @@ class PurchaseTicket():
         
         return render(request, 'purchaseTicket.html', {'flight': flight, 'form' : form})
         
-        
-class UserTicketsView(LoginRequiredMixin, ListView):
-    model = Ticket
-    template_name = 'myTickets.html'
-    context_object_name = 'tickets'
-
-    def get_queryset(self):
-        return Ticket.objects.for_user(self.request.user)

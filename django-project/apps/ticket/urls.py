@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import PurchaseTicket, UserTicketsView
+from .views.PurchaseTicket import PurchaseTicket 
+from .views.UserTicketsView import UserTicketsView
 
 urlpatterns = [
     path('purchase_ticket/<int:flight_id>/', PurchaseTicket.template , name='purchase'),
