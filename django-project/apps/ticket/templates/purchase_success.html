@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% load static %} {% block link %}
-<link rel="stylesheet" href="{% static '/styles/purchasestyles.css' %}" />
+<link rel="stylesheet" href="{% static '/styles/success.css' %}" />
 {% endblock link %} {% block content %}
 
-<div class="container d-flex align-items-center">
-    <div class="success-animation">
+<div class="container align-items-center">
+  <div class="text-center">
+    <div class="success-animation m-5">
       <svg
         class="checkmark"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +18,38 @@
         />
       </svg>
     </div>
+
+    <div id="message">
+      <div
+        class="alert alert-success mt-0 "
+        id="completion-message"
+        role="alert"
+        style="display: none"
+      >
+        <h3>Compra finalizada</h3>
+      </div>
+    </div>
+
+
+    <div class="row w-40">
+        
+    </div>
+
+    {% comment %}
+    <div>{{ ticket }}</div>
+    {% endcomment %}
+  </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkmark = document.querySelector(".checkmark");
+    checkmark.addEventListener("animationend", function (event) {
+      if (event.animationName === "scale") {
+        document.getElementById("completion-message").style.display = "block";
+      }
+    });
+  });
+</script>
 
 {% endblock content %}
