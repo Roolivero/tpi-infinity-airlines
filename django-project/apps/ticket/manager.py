@@ -45,11 +45,11 @@ class TicketManager(models.Manager):
         
         match ticket_class:
             case 'first': 
-                ticket_class = 120
+                extra = 120
             case 'second':
-                ticket_class = 50
+                extra = 50
             case _:
-                ticket_class = 0
+                extra = 0
                 
-        return (ticket_price + float(ticket_class)) * quantity
+        return (ticket_price + extra) * float(quantity)
 

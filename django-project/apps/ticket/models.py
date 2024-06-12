@@ -15,11 +15,11 @@ class Ticket(models.Model):
     ]
     ticket_class = models.CharField(max_length=7,choices=TYPE,default='third')
     purchase_date = models.DateField()
-    seat_location = models.CharField(max_length=3) # DEFINIR BIEN 
+    seat_location = models.CharField() # DEFINIR BIEN 
     fk_user = models.ForeignKey(User, on_delete=models.CASCADE)
     fk_flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
     purchase_order = models.CharField(unique=True, max_length=20)
-    buy_total_price = models.FloatField(null=False)
+    buy_total_price = models.FloatField(null=False, unique=False)
     quantity = models.IntegerField(default=1)
 
     objects = TicketManager()

@@ -8,6 +8,9 @@ from datetime import timezone
 
 
 class PurchaseTicket():
+    '''
+    esta vista muestra el ticket seleccionado y te permite personalizar la compra 
+    '''
     def template(request, flight_id):
         flight = get_object_or_404(FlightHistory, id=flight_id)
         
@@ -21,5 +24,5 @@ class PurchaseTicket():
 
         form = PurchaseTicketForm()
         
-        return render(request, 'purchaseTicket.html', {'flight': flight, 'form' : form})
+        return render(request, 'purchase_ticket.html', {'flight': flight, 'form' : form})
         
