@@ -17,11 +17,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title">PRICE ${{ total_price }}</h5>
+                        <h5 class="card-title"><strong>Total price</strong> ${{ total_price }}</h5>
                         <p class="card-text">
                             <div>Origin: {{ flight.fk_flight.fk_route.fk_airport_departure.fk_city.name }}</div> 
                             <div>Destiny: {{ flight.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}</div>
-                            <div> Client: {{user.last_name}} {{user.first_name}}</div> 
+                            <div>Client: {{user.last_name}} {{user.first_name}}</div> 
                         </p>
                     </div>
                     <div class="col text-end">
@@ -42,6 +42,27 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <table class="table table-striped-columns">
+                <thead>
+                  <tr>
+                    <th scope="col">Flight ticket price</th>
+                    <th scope="col">Class tier charge</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ flight.fk_flight.ticket_price}}</td>
+                    <td> {{ purchase_preferences.ticket_class_extra_charge }} </td>
+                    <td>{{ purchase_preferences.quantity }}</td>
+                    <td>{{ total_price }}</td>
+                  </tr>            
+                </tbody>
+              </table>
+            
+        </div>
 
         <div class="d-flex justify-content-end">
             <button onclick="window.history.back()" class="btn btn-danger m-2">Cancel</button>
@@ -52,11 +73,11 @@
             </form>
             
         </div>
-        
-
-        
     </div>
 
+    <div >
+
+    </div>
     
     <script>
         $("button").click(function () {
@@ -66,9 +87,6 @@
             }, 10);
           });
     </script>
-    
-    
-    
 
     
 {% endblock content %}

@@ -2,7 +2,16 @@
 
 
 #card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;/* Desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+}
+
+#card_header {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 36%, rgba(73,144,221,1) 66%); 
+}
+
+table {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;    
 }
 
 
@@ -11,7 +20,7 @@
  * Extracted from: SweetAlert
  * Modified by: Istiak Tridip
  */
- .success-animation { margin:150px auto;}
+.success-animation { margin:150px auto;}
 
 .checkmark {
     width: 100px;

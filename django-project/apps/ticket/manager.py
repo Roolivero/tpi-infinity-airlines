@@ -41,15 +41,17 @@ class TicketManager(models.Manager):
     def for_user(self, user):
         return self.filter(fk_user=user)
     
-    def calculate_total_price(self, ticket_price, quantity, ticket_class):
-        
+    def get_class_charge(self, ticket_class:str):
+
         match ticket_class:
             case 'first': 
-                extra = 120
+                return 120
             case 'second':
-                extra = 50
+                return 50
             case _:
-                extra = 0
+                return 0
+        
+    def calculate_total_price(self, ticket_price:float, quantity:int, ticket_class:str):
                 
-        return (ticket_price + extra) * float(quantity)
+        return (ticket_price + self.get_class_charge(ticket_class)) * float(quantity)
 

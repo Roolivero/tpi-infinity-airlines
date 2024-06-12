@@ -18,8 +18,11 @@ class PurchaseConfirmation():
                 purchase_preferences = {
                     'quantity': purchase_data.cleaned_data['quantity'],
                     'seat_location': purchase_data.cleaned_data['seat_location'],
-                    'ticket_class': purchase_data.cleaned_data['ticket_class']
+                    'ticket_class': purchase_data.cleaned_data['ticket_class'],
+                    'subtotal_price_quantity' : flight.fk_flight.ticket_price * float(purchase_data.cleaned_data['quantity'])
                 }
+                purchase_preferences['ticket_class_extra_charge'] = Ticket.objects.get_class_charge(purchase_preferences['ticket_class'])
+                
                 request.session['purchase_preferences'] = purchase_preferences
                 total_price = Ticket.objects.calculate_total_price(flight.fk_flight.ticket_price, purchase_preferences['quantity'], purchase_preferences['ticket_class'])
                 
