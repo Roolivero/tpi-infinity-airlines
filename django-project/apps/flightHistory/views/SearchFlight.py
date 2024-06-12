@@ -8,10 +8,4 @@ class SearchFlight():
             return render(request, 'results.html')
 
         return render(request, "searchFlight.html")
-    
-    def templateBootstrap(request):
-        return render(request, "searchFlightBts.html")
-
-    # def templateBootstrap(request):
-    #     return render(request, "searchFlightBts.html")
         

@@ -58,9 +58,9 @@ class UserViews:
                 user = authenticate(email=email, password=password, dni=dni)
                 if user:
                     login(request, user)
-                    destination = get_redirect_if_exists(request)
+                    destination = request.session.pop('flight_id', None)
                     if destination:
-                        return redirect(destination)
+                        return redirect('purchase', flight_id=destination)
                     return redirect('search_flight')    
             else:
                 context['login_form'] = form

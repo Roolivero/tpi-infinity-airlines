@@ -1,6 +1,6 @@
 from django import forms
 
-class QueryFlight(forms.Form):
+class QueryFlightForm(forms.Form):
     origin = forms.CharField(
         label='Origen',
         max_length=100,

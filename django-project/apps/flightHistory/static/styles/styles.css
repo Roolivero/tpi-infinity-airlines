@@ -85,6 +85,7 @@ fieldset {
 legend {
     float: left;
     color: hsl(262, 55%, 60%);
+    font-size: 15px;
 }
 
 .input-container {

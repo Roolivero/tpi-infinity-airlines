@@ -1,15 +1,16 @@
 from django.db import models
-from apps.flightHistory.models import FlightHistory
 from apps.route.models import Route
 from .manager import FlightManager
-
+from .validators import validate_code
 class Flight(models.Model):
-    code = models.CharField(max_length=20, unique=True)
+    '''
+    Flight sirve para realizar una plantilla de un vuelo. Su funcion es que se pueda agregar el mismo registro flight la cantidad de veces que quiera en flightHistory (siempre con fechas distintas)
+    '''
+    code = models.CharField(max_length=20, unique=True, validators=[validate_code])
     stopover = models.BooleanField(null=False)
     departure_time = models.TimeField()
-    fk_flight_history = models.ForeignKey(FlightHistory, on_delete=models.CASCADE)
     fk_route = models.ForeignKey(Route, on_delete=models.CASCADE)
-    ticket_price = models.FloatField(null=True)
+    ticket_price = models.FloatField(null=False, default=0)
 
     objects = FlightManager()
 

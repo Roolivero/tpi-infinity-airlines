@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'baseHtml/styles/baseHtml.css' %}"> 
+    <link rel="icon" href="{% static 'svg/plane.svg'%}" type="image/png">
     {% block link %}
     {% endblock link %} 
     <title>{% block title %} Infinity Airlines {% endblock %}</title>
@@ -40,6 +41,7 @@
         {% block content %}
         {% endblock content %}
     </main>
+    {% block footer %}
     <footer class="position-absolute top-100 start-50 translate-middle">
         <div class = "footer-content">
             <p>Informacion de contacto: </p>
@@ -47,6 +49,7 @@
             <p>Mail: infinityAirlines@travel.com.ar </p>
         </div>
     </footer>
+    {% endblock footer %}
     {% bootstrap_javascript %}
 </body>
 </html>

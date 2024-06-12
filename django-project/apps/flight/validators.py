@@ -2,7 +2,8 @@ import re
 import pycountry
 from django.core.exceptions import ValidationError
 
-country_codes = {country.name: country.alpha_2 for country in pycountry.countries}
+country_codes = {country.alpha_2: country.name for country in pycountry.countries}
+
 
 def validate_code(value):
     if not re.match(r'^[A-Z]{2}\d{4}$', value):
