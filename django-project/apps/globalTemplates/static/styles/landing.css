@@ -1,1 +1,30 @@
+.text-container {
+    text-align: center;
+    margin-top: 20px;
+}
 
+.card {
+    width: 80%; /* Ajusta el ancho de la tarjeta según tus necesidades */
+    max-width: 700px; /* Limita el ancho máximo de la tarjeta */
+    margin: 20px auto; /* Centra la tarjeta horizontalmente */
+}
+
+.carousel-inner .carousel-item img {
+    max-height: 500px; /* Limita la altura máxima de las imágenes */
+    object-fit: cover; /* Ajusta las imágenes para que cubran el contenedor */
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido dentro del contenedor */
+}
+
+.card-description {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    color: white;
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados */
+}

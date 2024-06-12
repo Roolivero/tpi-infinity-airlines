@@ -14,5 +14,10 @@ body{
 
 footer{
     background-color: #355cc8c5; 
-    width: 90rem;
+    width: 100vw;
+}
+
+.footer-content p {
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 2px 0; /* Ajusta el padding para reducir el espacio vertical */
 }
