@@ -51,7 +51,12 @@ class TicketManager(models.Manager):
             case _:
                 return 0
         
+    def calculate_total_price_iva(self, ticket_price:float, quantity:int, ticket_class:str):
+        subtotal = (ticket_price + self.get_class_charge(ticket_class)) * float(quantity)
+        return  subtotal + self.get_iva(subtotal)
+    
     def calculate_total_price(self, ticket_price:float, quantity:int, ticket_class:str):
-                
         return (ticket_price + self.get_class_charge(ticket_class)) * float(quantity)
 
+    def get_iva(self, total_price):
+        return float(f"{float(total_price / 100.00 * 8.0):.2f}")

@@ -30,6 +30,19 @@ class PurchaseSuccess():
                 quantity=quantity
             )
 
-            return render(request, 'purchase_success.html', {'ticket': ticket})
+            extra_info = {
+                'subtotal_flight_quantity' : flight.fk_flight.ticket_price * float(quantity),
+                'tier_class_charge' : Ticket.objects.get_class_charge(ticket_class),
+                'subtotal_class_quantity' : Ticket.objects.get_class_charge(ticket_class) * float(quantity), 
+                'iva' : Ticket.objects.get_iva(ticket.buy_total_price),
+                'total' : Ticket.objects.calculate_total_price_iva(flight.fk_flight.ticket_price, quantity, ticket_class)
+            }
+            
+            extra_info['subtotal'] = extra_info['subtotal_flight_quantity'] + extra_info['subtotal_class_quantity'] 
+
+            return render(request, 'purchase_success.html', {
+                'ticket': ticket ,
+                'extra_info' : extra_info
+                })
         else:
             return redirect('home')
