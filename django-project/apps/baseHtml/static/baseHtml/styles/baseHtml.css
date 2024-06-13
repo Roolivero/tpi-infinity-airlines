@@ -1,23 +1,32 @@
+.google-font {
+    font-family: 'Dancing Script', cursive;
+}
+
 .navbar-custom {
-    background-color: #355cc8c5;
+    background-color: rgba(208, 233, 240, 0.306);
+    color: white; 
 }
 
 .navbar-custom .nav-link:hover {
-    background-color: rgba(204, 207, 244, 0.428); 
+    background-color: rgba(100, 228, 250, 0.5);
     color: white;
     border-radius: 5px; 
 }
 
 body{
-    background-color: #c7dff9;
+    background-image: linear-gradient(to bottom, #bad0f3, #a0beee, #85acea, #6a9ae4, #4b88df);
+    background-size: cover; /* Ajusta el tamaño del fondo para cubrir la pantalla */
+    background-attachment: fixed; 
 }
 
 footer{
-    background-color: #355cc8c5; 
+    background-color: #417dd39a;
     width: 100vw;
+    color:rgb(5, 5, 5);
 }
 
 .footer-content p {
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 2px 0; /* Ajusta el padding para reducir el espacio vertical */
+    text-align: center;
+    margin: 0; 
+    padding: 2px 0; 
 }

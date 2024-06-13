@@ -1,30 +1,45 @@
 .text-container {
-    text-align: center;
     margin-top: 20px;
 }
 
-.card {
-    width: 80%; /* Ajusta el ancho de la tarjeta según tus necesidades */
-    max-width: 700px; /* Limita el ancho máximo de la tarjeta */
-    margin: 20px auto; /* Centra la tarjeta horizontalmente */
+#carouselExampleSlidesOnly {
+    position: absolute;
+    top: 65%; /* Posiciona el carrusel a la mitad de la altura de la ventana */
+    left: 50%; /* Posiciona el carrusel a la mitad del ancho de la ventana */
+    transform: translate(-50%, -50%); /* Centra exactamente el carrusel */
+    width: 70%; /* Ancho del carrusel */
+    max-width: 700px; /* Ancho máximo del carrusel */
+}
+
+.border-translucent {
+    padding: 5px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    max-width: 700px; /* Ancho máximo del carrusel */
+}
+
+.carousel-inner .carousel-item {
+    position: relative;
+    height: 400px; /* Altura ajustada del carrusel */
+    width: 750px;
 }
 
 .carousel-inner .carousel-item img {
-    max-height: 500px; /* Limita la altura máxima de las imágenes */
-    object-fit: cover; /* Ajusta las imágenes para que cubran el contenedor */
-}
-
-.carousel-content {
-    display: flex;
-    align-items: center; /* Centra verticalmente el contenido dentro del contenedor */
+    height: 100%; /* Ajustar la imagen al 100% de la altura del contenedor */
+    object-fit: cover; /* Cubrir completamente el área designada */
+    object-position: center bottom; /* Alinear la imagen centrada horizontalmente y abajo verticalmente */
 }
 
 .card-description {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
-    color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(182, 215, 238, 0.8); /* Fondo traslúcido */
+    color: rgb(0, 0, 0);
     padding: 10px;
-    border-radius: 5px; /* Bordes redondeados */
+    text-align: center;
+}
+
+.card-text {
+    margin: 0;
 }
