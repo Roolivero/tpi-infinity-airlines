@@ -17,11 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 #from apps.flight.views import create_flight
-from apps.globalTemplates.views import LandingView
 
 
 urlpatterns = [
-    path('home/', LandingView.template, name='home'),
     path('admin/', admin.site.urls),
     #path('create-flight/', create_flight, name='create_flight'),
     path('', include('apps.flightHistory.urls')),

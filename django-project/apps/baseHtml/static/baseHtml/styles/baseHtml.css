@@ -1,9 +1,28 @@
-.google-font {
-    font-family: 'Dancing Script', cursive;
+#map { 
+    height: 100%;
+    width: 100%;
+    position: absolute;input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /*filter: blur(1px);*/
+}
+
+#main_box {
+    width: 80vw;
+    height: 80vh;
+    background-color: hsla(229, 31%, 93%, 0.503);
+    margin-left: 10vw;
+    margin-top: 5vw;
+    text-align: center;
+    backdrop-filter: blur(8px) ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-custom {
-    background-color: rgba(208, 233, 240, 0.306);
+    /* background-color: hsla(227, 62%, 75%, 0.6); */
     color: white; 
 }
 

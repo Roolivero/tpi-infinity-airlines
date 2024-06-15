@@ -1,57 +1,70 @@
+{% extends "base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">    
-<head>
-    {% load django_bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    
+{% block link %}
     <link rel="stylesheet" href="{% static '/styles/styles.css' %}">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script> 
-    <title>Buscar vuelos</title>
-</head>
-<body>
-    
-    <div id="map"></div> 
-    <div id="main_box" class="container-fluid">
-        <h1 alt="infinity airlines">Infinity Airlines</h1>
-
+{% endblock link %}
+{% block content %}
+    <div id="carouselExampleSlidesOnly" class="carousel slide border-translucent" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{% static 'images/dubai.jpg' %}" class="d-block w-100" alt="Dubai">
+                        </div>
+                        <div class="col">
+                            <div class="card-description">
+                                <p class="card-text">Dubai!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{% static 'images/dubai.jpg' %}" class="d-block w-100" alt="Dubai">
+                        </div>
+                        <div class="col">
+                            <div class="card-description">
+                                <p class="card-text">Dubai!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{% static 'images/dubai.jpg' %}" class="d-block w-100" alt="Dubai">
+                        </div>
+                        <div class="col">
+                            <div class="card-description">
+                                <p class="card-text">Dubai!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <h2>Buscar vuelos</h2>
-
-
         <div class="contenedor-formulario">
                 <form  class="formulario" method=POST action={% url 'results' %}>
-
                     {% csrf_token %}
-
                     <fieldset>
-                        
                         <div class="input-container" name="origin"> 
                             <div class="column">
                                 <legend>Origen</legend>
                                 <div class="svg-input">
                                     <svg fill="#000000" width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M 25.71875 4.78125 C 25.332031 4.816406 24.957031 4.929688 24.59375 5.125 L 19.875 7.625 L 13.5 6.0625 L 13.125 5.96875 L 12.75 6.15625 L 10.59375 7.40625 L 9.3125 8.15625 L 10.5 9.0625 L 13.21875 11.125 L 9.8125 12.9375 L 6.15625 11.28125 L 5.71875 11.09375 L 5.28125 11.3125 L 3.53125 12.25 L 2.375 12.875 L 3.25 13.8125 L 8.65625 19.625 L 9.15625 20.21875 L 9.84375 19.84375 L 15 17.09375 L 13.96875 22.78125 L 13.625 24.59375 L 15.34375 23.875 L 17.90625 22.78125 L 18.28125 22.625 L 18.4375 22.25 L 22.15625 13.21875 L 27.40625 10.40625 C 28.851563 9.628906 29.433594 7.789063 28.65625 6.34375 C 28.269531 5.621094 27.609375 5.128906 26.875 4.90625 C 26.507813 4.796875 26.105469 4.746094 25.71875 4.78125 Z M 25.90625 6.78125 C 26.03125 6.773438 26.160156 6.777344 26.28125 6.8125 C 26.523438 6.886719 26.742188 7.035156 26.875 7.28125 C 27.140625 7.777344 26.964844 8.359375 26.46875 8.625 L 20.875 11.65625 L 20.5625 11.8125 L 20.4375 12.15625 L 16.71875 21.09375 L 16.28125 21.28125 L 17.34375 15.375 L 17.71875 13.34375 L 15.90625 14.3125 L 9.59375 17.71875 L 5.625 13.40625 L 5.78125 13.3125 L 9.4375 14.9375 L 9.90625 15.15625 L 10.3125 14.90625 L 25.53125 6.875 C 25.65625 6.808594 25.78125 6.789063 25.90625 6.78125 Z M 13.375 8.09375 L 17.21875 9.03125 L 15.15625 10.09375 L 12.90625 8.375 Z M 3 26 L 3 28 L 29 28 L 29 26 Z"/></svg>
-                                    </svg>
                                 </div>
                             </div>
                             <input type="text" name="origin">
                         </div>
-    
                     </fieldset>
-                    
-                            
                     <fieldset>
                         <div class="input-container" name="destiny"> 
                             <div class="column">
@@ -63,12 +76,7 @@
                             </div>
                             <input type="text" name="destiny" >
                         </div>
-    
                     </fieldset>
-                    
-                    
-        
-    
                     <fieldset>
                         <div class="input-container"> 
                             <div class="column">
@@ -84,53 +92,24 @@
                     </fieldset>
                     <button type="submit" class="btn btn-primary"> Buscar</button>
                 </form>
-                
-            
         </div>
-    </div>
-
-    <script>
-        var map = L.map('map', {
-            zoomControl: false,
-            dragging: false 
-        } ).setView([20, 0], 2.7);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            id: 'neich/clumsoq4504fq01nwam0ygy3y', // ID del estilo personalizado de Mapbox
-            accessToken: 'pk.eyJ1IjoibmVpY2giLCJhIjoiY2x4ZjFveGN6MG0xYjJrcHUzZ2puNDB3bSJ9.NWzJ1m4EFin-zGrcGLGVuA' // Token de acceso de Mapbox
-        }).addTo(map);
-    </script>
-
     <script>
             // Obtener el input de fecha y el botón del calendario
             const fechaPartidaInput = document.getElementById('fecha-partida');
             const calendarioBtn = document.getElementById('calendario-partida');
-    
             // Agregar evento clic al botón del calendario
             calendarioBtn.addEventListener('click', () => {
                 // Abrir el selector de fecha al hacer clic en el botón del calendario
                 fechaPartidaInput.focus();
             });
-    
-            
-            
             const fechaRegresoInput = document.getElementById('fecha-regreso');
             const calendarioRegresoBtn = document.getElementById('calendario-regreso');
-    
             calendarioRegresoBtn.addEventListener('click', () => {
                 // Abrir el selector de fecha al hacer clic en el botón del calendario
                 fechaRegresoInput.focus();
             });
-    
             // Ocultar el cursor del mouse cuando se pase sobre la imagen del calendario
             calendarioBtn.style.cursor = 'pointer';
             calendarioRegresoBtn.style.cursor = 'pointer'
-
-
-            
     </script>
-
-    
-</body>
-</html>
+{% endblock content %}

@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'apps.city',
     'apps.flight',
     'apps.flightHistory',
-    'apps.globalTemplates',
     'apps.plane',
     'apps.route',
     'apps.ticket',

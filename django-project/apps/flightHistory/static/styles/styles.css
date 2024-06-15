@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-size: 100% 100%;
@@ -9,40 +8,40 @@ body {
     display: flex;
 }
 
-#map { 
-    height: 100%;
+.text-container {
+    margin-top: 20px;
+}
+
+#carouselExampleSlidesOnly {
+    margin-bottom: 0;
+    width: 70%; /* Ancho del carrusel */
+    max-width: 700px; /* Ancho máximo del carrusel */
+}
+
+.border-translucent {
+    padding: 5px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    max-width: 700px; /* Ancho máximo del carrusel */
+}
+
+.carousel-inner .carousel-item img {
+    height: 100%; /* Ajustar la imagen al 100% de la altura del contenedor */
+    object-fit: cover; /* Cubrir completamente el área designada */
+    object-position: center bottom; /* Alinear la imagen centrada horizontalmente y abajo verticalmente */
+}
+
+.card-description {
     width: 100%;
-    position: absolute;input[type="date"]::-webkit-calendar-picker-indicator {
-        display: none;
-    }
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /*filter: blur(1px);*/
-}
-
-#main_box {
-    width: 80vw;
-    height: 80vh;
-    background-color: hsl(227, 42%, 83%, 0.6);
-    margin-left: 10vw;
-    margin-top: 5vw;
+    background-color: rgba(182, 215, 238, 0.8); /* Fondo traslúcido */
+    color: rgb(0, 0, 0);
+    padding: 10px;
     text-align: center;
-    backdrop-filter: blur(8px) ;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-    color: hsl(223, 80%, 63%);
-    font-size: 3vw;
-    font-style: italic;
-    margin-top: 8vw;
+.card-text {
+    margin: 0;
 }
 
-h2 {
-    font-size: 1.8vw;
-    margin-top: 5vw;
-}
 
 .contenedor-formulario {
     display: flex;
@@ -56,7 +55,7 @@ h2 {
     flex-direction: row;
     justify-content: center; /* Centra los elementos horizontalmente */
     margin-top: 20px;
-    background-color: hsl(227, 42%, 83%);
+    background-color: hsla(0, 0%, 100%, 0.938);
     border:2px solid hsl(223, 80%, 63%);
     flex-wrap: wrap;
     border-radius: 8px;
@@ -111,7 +110,7 @@ legend {
 .formulario select {
     padding: 5px;
     margin-right: 10px; /* Espacio entre campos */
-    background-color: hsla(227, 43%, 83%, 0.938);
+    background-color: hsla(0, 0%, 100%, 0.938);
     outline: none;
     justify-content: center;
     border: none;
