@@ -16,9 +16,10 @@
     background-color: hsla(229, 31%, 93%, 0.503);
     margin-left: 10vw;
     margin-top: 5vw;
-    text-align: center;
     backdrop-filter: blur(8px) ;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Añadido para la barra de desplazamiento vertical */
+    overflow-x: hidden; /* Puedes cambiarlo a 'auto' si también necesitas desplazamiento horizontal */
 }
 
 .navbar-custom {

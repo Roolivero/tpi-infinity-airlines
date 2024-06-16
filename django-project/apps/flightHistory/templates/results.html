@@ -8,13 +8,12 @@
     <title>Document</title>
 {% endblock link%}
 {% block content%}
-    <div class="container-fluid vh-100% p-0 d-flex">
-        <aside class="aside bg-primary p-3 vh-100%">
-            Ordenar por:
-        </aside>
-
-        <main class="main flex-grow-1">
-            <div class="container">
+    <div class="container-fluid p-0 d-flex">
+        <main class="main flex-grow-1 text-align-start">
+            <aside class="aside bg-primary p-3 container-fluid w-100">
+                Ordenar por:
+            </aside>
+            <div class="container p-0">
                 {% if result %}
                 {% for result in result  %}
                 <a href="{% url 'purchase' result.id %}" class="card-link" alt="buy">
@@ -26,7 +25,7 @@
                         </h5>
                     </div>
                     
-                    <div class="card-body" >
+                    <div class="card-body text-left">
                         <h5 class="card-title">PRICE ${{ result.fk_flight.ticket_price }}</h5>
                         <p class="card-text">
                             <span>Origin:</span> {{ result.fk_flight.fk_route.fk_airport_departure.fk_city.name }} -> 
@@ -49,7 +48,3 @@
         </main>
     </div>
 {% endblock %}
-
-{% block footer %}
-<!-- No footer -->
-{% endblock footer %}
