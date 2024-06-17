@@ -55,6 +55,9 @@ class FlightHistoryManager(models.Manager):
             date=date
         )
     
+    def add_sold_tickets(self, flight, quantity:int): 
+        flight.sold_ticket =+ int(quantity)
+    
     def calculate_available_tickets(self, flight):
          match flight.fk_plane.size:
             case 'chico':

@@ -30,6 +30,8 @@ class PurchaseSuccess():
                 quantity=quantity
             )
 
+            FlightHistory.objects.add_sold_tickets(flight, quantity)
+
             extra_info = {
                 'subtotal_flight_quantity' : flight.fk_flight.ticket_price * float(quantity),
                 'tier_class_charge' : Ticket.objects.get_class_charge(ticket_class),

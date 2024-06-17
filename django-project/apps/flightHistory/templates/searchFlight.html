@@ -52,7 +52,7 @@
     </div>
         <h2>Buscar vuelos</h2>
         <div class="contenedor-formulario">
-                <form  class="formulario" method=POST action={% url 'results' %}>
+                <form  class="formulario" method=POST action={% url 'search_flight' %}>
                     {% csrf_token %}
                     <fieldset>
                         <div class="input-container" name="origin"> 
@@ -92,6 +92,16 @@
                     </fieldset>
                     <button type="submit" class="btn btn-primary"> Buscar</button>
                 </form>
+
+            {% if errors %}
+                <div class="error-messages d-flex justify-content-end">
+                        {% for error in errors %}
+                            <div class="alert alert-danger m-1" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                </div>
+            {% endif %}
         </div>
     <script>
             // Obtener el input de fecha y el botón del calendario
