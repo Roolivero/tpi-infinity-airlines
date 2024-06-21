@@ -8,4 +8,3 @@ urlpatterns = [
     path('query_flight/', FlightResults.template , name='results'),
     #path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
 ]
-    
