@@ -1,26 +1,17 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.shortcuts import redirect
+from django.views.generic.edit import FormView
+from ..forms import QueryFlightForm
 
-class SearchFlight():
-    def template(request):
+class SearchFlightView(FormView):
+    template_name = 'searchFlight.html'
+    form_class = QueryFlightForm
+
+    def form_valid(self, form):
+        origin = form.cleaned_data['origin']
+        destiny = form.cleaned_data['destiny']
+        date = form.cleaned_data['date']
         
-        errors = []
-
-        if request.method == "POST":
-            origin = request.POST.get('origin')
-            destiny = request.POST.get('destiny')
-            date = request.POST.get('date')
-
-            if not origin:
-                errors.append("El campo 'Origen' es obligatorio.")
-            if not destiny:
-                errors.append("El campo 'Destino' es obligatorio.")
-            if not date:
-                errors.append("El campo 'Partida' es obligatorio.")
-
-            if errors:
-                return render(request, 'searchFlight.html', {'errors': errors})
-
-            return redirect(reverse('results') + f"?origin={origin}&destiny={destiny}&date={date}")
-
-        return render(request, "searchFlight.html", {'errors': errors})
+        # Construir la query string para redirigir con los parámetros
+        query_string = f"?origin={origin}&destiny={destiny}&date={date}"
+        return redirect(reverse('results') + query_string)
