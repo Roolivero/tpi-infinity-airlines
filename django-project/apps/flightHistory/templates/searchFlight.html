@@ -93,9 +93,9 @@
                     <button type="submit" class="btn btn-primary"> Buscar</button>
                 </form>
 
-            {% if errors %}
+            {% if form.errors %}
                 <div class="error-messages d-flex justify-content-end">
-                        {% for error in errors %}
+                        {% for error in form.errors %}
                             <div class="alert alert-danger m-1" role="alert">
                                 {{ error }}
                             </div>
