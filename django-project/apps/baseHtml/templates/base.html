@@ -1,8 +1,9 @@
-    {% load static %}
-    <!DOCTYPE html>
-    <html>
-        <head>
-        {% load django_bootstrap5 %} {% bootstrap_css %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load django_bootstrap5 %} 
+        {% bootstrap_css %}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static 'baseHtml/styles/baseHtml.css' %}" />
@@ -20,72 +21,69 @@
         ></script>
         {% block link %} {% endblock link %}
         <title>{% block title %} Infinity Airlines {% endblock %}</title>
-        </head>
-        <body>
+    </head>
+    <body>
         <div id="map"></div>
         <div id="main_box" class="container-fluid">
             <header>
-            <nav class="navbar navbar-expand-lg navbar-custom py-1">
-                <div class="container-fluid">
-                
-                <a class="navbar-brand fs-2 m-0 p-0" href="{% url 'search_flight' %}">
-                    <img src="{% static 'logo.png'%}" alt="Infinity airlines logo" style="width: 75px; height: auto; margin: 0px;" class="m-0 p-0">
-                </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav position-absolute top-0 end-0 false fs-3 m-0">
-                    <li class="nav-item m-0">
-                        <a
-                        class="nav-link m-0"
-                        aria-current="page"
-                        href="{% url 'search_flight' %}"
-                        >Buscar vuelos</a
+                <nav class="navbar navbar-expand-lg navbar-custom py-1">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fs-2 m-0 p-0" href="{% url 'search_flight' %}">
+                            <img src="{% static 'logo.png'%}" alt="Infinity airlines logo" style="width: 75px; height: auto; margin: 0px;" class="m-0 p-0">
+                        </a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown"
+                            aria-controls="navbarNavDropdown"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
                         >
-                    </li>
-                    <li class="nav-item m-0">
-                        <a class="nav-link m-0" href="{% url 'user_tickets' %}"
-                        >Iniciar sesión</a
-                        >
-                    </li>
-                    {% comment %} {% if loggeado %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mis reservas</a>
-                    </li>
-                    {% endif %} {% endcomment %}
-                    </ul>
-                </div>
-                </div>
-            </nav>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav position-absolute top-0 end-0 false fs-3 m-0">
+                                <li class="nav-item m-0">
+                                    <a class="nav-link m-0" aria-current="page" href="{% url 'search_flight' %}">Buscar vuelos</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item m-0">
+                                        <a class="nav-link m-0" href="{% url 'user_tickets' %}">Mis reservas</a>
+                                    </li>
+                                    <li class="nav-item m-0">
+                                        <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="nav-link m-0" style="background: none; border: none; padding: 0; cursor: pointer;">Cerrar sesión</button>
+                                        </form>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item m-0">
+                                        <a class="nav-link m-0" href="{% url 'login' %}">Iniciar sesión</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </header>
             <hr class="m-0">
             <main>{% block content %} {% endblock content %}</main>
         </div>
         <script>
             var map = L.map("map", {
-            zoomControl: false,
-            dragging: false,
+                zoomControl: false,
+                dragging: false,
             }).setView([20, 0], 2.7);
             L.tileLayer(
-            "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-            {
-                attribution:
-                '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                id: "neich/clumsoq4504fq01nwam0ygy3y", // ID del estilo personalizado de Mapbox
-                accessToken:
-                "pk.eyJ1IjoibmVpY2giLCJhIjoiY2x4ZjFveGN6MG0xYjJrcHUzZ2puNDB3bSJ9.NWzJ1m4EFin-zGrcGLGVuA", // Token de acceso de Mapbox
-            }
+                "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+                {
+                    attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                    id: "neich/clumsoq4504fq01nwam0ygy3y", // ID del estilo personalizado de Mapbox
+                    accessToken: "pk.eyJ1IjoibmVpY2giLCJhIjoiY2x4ZjFveGN6MG0xYjJrcHUzZ2puNDB3bSJ9.NWzJ1m4EFin-zGrcGLGVuA", // Token de acceso de Mapbox
+                }
             ).addTo(map);
         </script>
         {% bootstrap_javascript %}
-        </body>
-    </html>
+    </body>
+</html>

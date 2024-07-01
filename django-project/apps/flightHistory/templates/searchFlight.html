@@ -94,10 +94,10 @@
                 </form>
 
             {% if form.errors %}
-                <div class="error-messages d-flex justify-content-end">
+                <div class="error-messages d-flex justify-content-end p-1">
                         {% for error in form.errors %}
-                            <div class="alert alert-danger m-1" role="alert">
-                                {{ error }}
+                            <div class="alert alert-danger p-2 m-1" role="alert">
+                                required {{ error }} 
                             </div>
                         {% endfor %}
                 </div>

@@ -2,4 +2,4 @@ from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 
 class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy('home')
+    next_page = reverse_lazy('search_flight')
