@@ -8,7 +8,7 @@
 <div class="container mt-5">
   <div class="ticket-details-container">
     <div class="ticket-details-header">
-      <h2>{{ ticket.fk_flight.fk_route.fk_airport_departure.airport_code }} <i class="fas fa-long-arrow-alt-right"></i> {{ ticket.fk_flight.fk_route.fk_airport_arrival.airport_code }}</h2>
+      <h2>{{ ticket.fk_flight.fk_route.fk_airport_departure.airport_code }}---->{{ ticket.fk_flight.fk_route.fk_airport_arrival.airport_code }}</h2>
       <p>Departure time: {{ ticket.fk_flight.departure_time }}</p>
     </div>
     <div class="ticket-details-body">
@@ -55,11 +55,10 @@
       </div>
     </div>
     <div class="ticket-details-footer">
-      <a href="#" class="btn btn-primary">Back to Tickets</a>
+      <a href="{% url 'user_tickets'%}" class="btn btn-primary">Back to Tickets</a>
     </div>
   </div>
 </div>
 {% endblock content %}
 {% block footer %}
-<!-- No footer -->
 {% endblock footer %}
