@@ -25,9 +25,9 @@
     <body>
         <div id="map"></div>
         <div id="main_box" class="container-fluid">
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-custom py-1">
-                    <div class="container-fluid">
+            <header class=="px-0 mx-0">
+                <nav class="navbar navbar-expand-lg navbar-custom py-1 m-1">
+                    <div class="container-fluid m-0 p-0">
                         <a class="navbar-brand fs-2 m-0 p-0" href="{% url 'search_flight' %}">
                             <img src="{% static 'logo.png'%}" alt="Infinity airlines logo" style="width: 75px; height: auto; margin: 0px;" class="m-0 p-0">
                         </a>
@@ -43,23 +43,23 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav position-absolute top-0 end-0 false fs-3 m-0">
-                                <li class="nav-item m-0">
-                                    <a class="nav-link m-0" aria-current="page" href="{% url 'search_flight' %}">Buscar vuelos</a>
+                            <ul class="navbar-nav ms-auto align-items-end fs-5 m-0">
+                                <li class="nav-item m-0 p-0">
+                                    <a class="nav-link mx-3 my-0 p-0" aria-current="page" href="{% url 'search_flight' %}">Buscar vuelos</a>
                                 </li>
                                 {% if user.is_authenticated %}
-                                    <li class="nav-item m-0">
-                                        <a class="nav-link m-0" href="{% url 'user_tickets' %}">Mis reservas</a>
+                                    <li class="nav-item m-0 p-0">
+                                        <a class="nav-link mx-3 my-0 p-0" href="{% url 'user_tickets' %}">Mis reservas</a>
                                     </li>
-                                    <li class="nav-item m-0">
-                                        <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: inline;">
+                                    <li class="nav-item m-0 p-0">
+                                        <form id="logout-form"  class="m-0 p-0" action="{% url 'logout' %}" method="post" style="display: inline;">
                                             {% csrf_token %}
-                                            <button type="submit" class="nav-link m-0" style="background: none; border: none; padding: 0; cursor: pointer;">Cerrar sesión</button>
+                                            <button type="submit" class="nav-link mx-3 my-0 p-0" style="background: none; border: none; padding: 0; cursor: pointer;">Cerrar sesión</button>
                                         </form>
                                     </li>
                                 {% else %}
-                                    <li class="nav-item m-0">
-                                        <a class="nav-link m-0" href="{% url 'login' %}">Iniciar sesión</a>
+                                    <li class="nav-item m-0 p-0">
+                                        <a class="nav-link mx-3 my-0 p-0" href="{% url 'login' %}">Iniciar sesión</a>
                                     </li>
                                 {% endif %}
                             </ul>
