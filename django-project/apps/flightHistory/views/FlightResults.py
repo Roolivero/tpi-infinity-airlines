@@ -1,19 +1,17 @@
-from typing import Any
+from django.views.generic import ListView
 from django.shortcuts import render
-from apps.flightHistory.forms import QueryFlightForm
+from ..forms import QueryFlightForm
 from ..models import FlightHistory
-from django.views.generic import TemplateView
-class FlightResults(TemplateView):
-    template_name = "results.html"
+class FlightResultsView(ListView):
+    model = FlightHistory
+    template_name = 'results.html'
+    context_object_name = 'result'
 
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        modelo_vista= super().get_context_data(**kwargs)
-        origin = self.request.GET.get('origin', None)
-        destiny = self.request.GET.get('destiny', None)
-        date = self.request.GET.get('date', None)
-        # Obtener los datos de la URL
+    def get_queryset(self):
+        origin = self.request.GET.get('origin')
+        destiny = self.request.GET.get('destiny')
+        date = self.request.GET.get('date')
 
-        # Crear un formulario con los datos obtenidos
         flight_query = QueryFlightForm({
             'origin': origin,
             'destiny': destiny,
@@ -30,5 +28,10 @@ class FlightResults(TemplateView):
             for flight in result:
                 flight.available_tickets = FlightHistory.objects.calculate_available_tickets(flight)
             
-            modelo_vista["result"]=result
-        return modelo_vista
+            return result
+        return FlightHistory.objects.none()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = QueryFlightForm(self.request.GET)
+        return context

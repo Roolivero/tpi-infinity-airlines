@@ -1,11 +1,10 @@
 from django.urls import path
-from .views.SearchFlight import SearchFlight
-from .views.FlightResults import FlightResults
+from .views.SearchFlight import SearchFlightView
+from .views.FlightResults import FlightResultsView
 
 
 urlpatterns = [
-    path('home/', SearchFlight.as_view(), name='search_flight'),
-    path('query_flight/', FlightResults.as_view() , name='results'),
+    path('home/', SearchFlightView.as_view(), name='search_flight'),
+    path('query_flight/', FlightResultsView.as_view() , name='results'),
     #path('bootstrap/' , SearchFlight.templateBootstrap, name ='test_flight'),
 ]
-    

@@ -11,7 +11,16 @@ class UserTicketsView(LoginRequiredMixin, ListView):
     context_object_name = 'tickets'
 
     def get_queryset(self):
-        return Ticket.objects.for_user(self.request.user).select_related('fk_flight_history', 'fk_flight__fk_route__fk_airport_departure', 'fk_flight__fk_route__fk_airport_arrival')
+        tickets = Ticket.objects.for_user(self.request.user).select_related(
+            'fk_flight_history',
+            'fk_flight__fk_route__fk_airport_departure',
+            'fk_flight__fk_route__fk_airport_arrival'
+        )
+        today = date.today()
+        for ticket in tickets:
+            ticket.is_past = ticket.fk_flight_history.date < today
+        return tickets
+
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

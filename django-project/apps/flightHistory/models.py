@@ -5,7 +5,9 @@ from apps.flight.models import Flight
 
 class FlightHistory(models.Model):
     '''
-    FlighHistory va a contener todos los vuelos de la aplicacion. Donde, se pueden repetir registros de la tabla Flight pero no se pueden repetir durante el mismo dia. Es importante para determinar el vuelo en especifico 
+    FlighHistory va a contener todos los vuelos de la aplicacion. 
+    Donde, se pueden repetir registros de la tabla Flight pero no se pueden repetir 
+    durante el mismo dia. Es importante para determinar el vuelo en especifico 
     '''
     date = models.DateField()
     fk_plane = models.ForeignKey(Plane, on_delete=models.CASCADE)

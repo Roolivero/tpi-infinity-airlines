@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'styles/detailsstyle.css' %}" />
+<title>Ticket Details</title>
+{% endblock link %}
+{% block content %}
+<div class="container mt-5">
+  <div class="ticket-details-container">
+    <div class="ticket-details-header">
+      <h2>{{ ticket.fk_flight.fk_route.fk_airport_departure.airport_code }} <i class="fas fa-long-arrow-alt-right"></i> {{ ticket.fk_flight.fk_route.fk_airport_arrival.airport_code }}</h2>
+      <p>Departure time: {{ ticket.fk_flight.departure_time }}</p>
+    </div>
+    <div class="ticket-details-body">
+      <h1 class="ticket-details-title">Ticket Details</h1>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-dollar-sign icon"></i> Name:</span>
+        <p class="value">{{ ticket.fk_user.first_name}} {{ticket.fk_user.last_name}}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-dollar-sign icon"></i> Dni:</span>
+        <p class="value">{{ ticket.fk_user.dni}}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-dollar-sign icon"></i> Price:</span>
+        <p class="value">${{ ticket.buy_total_price }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-plane icon"></i> Origin:</span>
+        <p class="value">{{ ticket.fk_flight.fk_route.fk_airport_departure.fk_city.name }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-plane-arrival icon"></i> Destination:</span>
+        <p class="value">{{ ticket.fk_flight.fk_route.fk_airport_arrival.fk_city.name }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-tag icon"></i> Class:</span>
+        <p class="value">{{ ticket.ticket_class }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-chair icon"></i> Seat:</span>
+        <p class="value">{{ ticket.seat_location }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="far fa-calendar-alt icon"></i> Purchase Date:</span>
+        <p class="value">{{ ticket.purchase_date }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="far fa-calendar-alt icon"></i> Flight Date:</span>
+        <p class="value">{{ ticket.fk_flight_history.date }}</p>
+      </div>
+      <div class="ticket-details-info">
+        <span><i class="fas fa-receipt icon"></i> Purchase Order:</span>
+        <p class="value">{{ ticket.purchase_order }}</p>
+      </div>
+    </div>
+    <div class="ticket-details-footer">
+      <a href="#" class="btn btn-primary">Back to Tickets</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block footer %}
+<!-- No footer -->
+{% endblock footer %}
