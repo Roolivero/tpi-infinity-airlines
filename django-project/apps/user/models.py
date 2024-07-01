@@ -6,18 +6,18 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email         = models.EmailField(max_length=50, unique=True, verbose_name=_('Email Address'))
-    first_name    = models.CharField(max_length=255, verbose_name=_('First Name'))
-    last_name     = models.CharField(max_length=255, verbose_name=_('Last Name'))
-    dni           = models.IntegerField(unique=True, verbose_name=_('Document number'))
+    email = models.EmailField(max_length=50, unique=True, verbose_name=_('Email Address'))
+    first_name = models.CharField(max_length=255, verbose_name=_('First Name'))
+    last_name = models.CharField(max_length=255, verbose_name=_('Last Name'))
+    dni = models.IntegerField(unique=True, verbose_name=_('Document number'))
 
-    is_staff      = models.BooleanField(default=False)
-    is_superuser  = models.BooleanField(default=False)
-    is_verified   = models.BooleanField(default=False)
-    is_active     = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
-    date_joined   = models.DateTimeField(auto_now_add=True)
-    last_login    = models.DateTimeField(auto_now=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
 
     objects = CustomUserManager()
 
