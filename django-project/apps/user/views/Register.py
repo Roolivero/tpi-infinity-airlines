@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 class RegisterView(CreateView):
     form_class = UserRegisterForm
     template_name = 'register.html'
+    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -20,7 +21,7 @@ class RegisterView(CreateView):
         destination = self.get_redirect_if_exists()
         if destination:
             return redirect(destination)
-        return response
+        return redirect(self.get_success_url())
 
     def get_redirect_if_exists(self):
         redirect = None
