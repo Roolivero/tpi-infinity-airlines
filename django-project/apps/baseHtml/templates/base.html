@@ -70,20 +70,21 @@
             <hr class="m-0">
             <main>{% block content %} {% endblock content %}</main>
         </div>
-        <script>
-            var map = L.map("map", {
-                zoomControl: false,
-                dragging: false,
-            }).setView([20, 0], 2.7);
-            L.tileLayer(
-                "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-                {
-                    attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                    id: "neich/clumsoq4504fq01nwam0ygy3y", // ID del estilo personalizado de Mapbox
-                    accessToken: "pk.eyJ1IjoibmVpY2giLCJhIjoiY2x4ZjFveGN6MG0xYjJrcHUzZ2puNDB3bSJ9.NWzJ1m4EFin-zGrcGLGVuA", // Token de acceso de Mapbox
-                }
-            ).addTo(map);
-        </script>
+        
         {% bootstrap_javascript %}
     </body>
+    <script>
+        var map = L.map("map", {
+            zoomControl: false,
+            dragging: false,
+        }).setView([20, 0], 2.7);
+        L.tileLayer(
+            "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+            {
+                attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                id: "neich/clumsoq4504fq01nwam0ygy3y", // ID del estilo personalizado de Mapbox
+                accessToken: "pk.eyJ1IjoibmVpY2giLCJhIjoiY2x4ZjFveGN6MG0xYjJrcHUzZ2puNDB3bSJ9.NWzJ1m4EFin-zGrcGLGVuA", // Token de acceso de Mapbox
+            }
+        ).addTo(map);
+    </script>
 </html>
