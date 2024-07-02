@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(https://i.ibb.co/VQmtgjh/6845078.png) no-repeat;
     height: 100vh;
     font-family: sans-serif;
     background-size: cover;
@@ -31,8 +30,6 @@ body {
     background: none;
 }
 
-
-  
   .user {
     margin: 0 auto;
     display: block;
@@ -66,14 +63,14 @@ body {
   
   .loginBox input[type="text"]:hover,
   .loginBox input[type="password"]:hover {
-    color: #42F3FA;
-    border: 1px solid #42F3FA;
+    color: #000000;
+    border: 1px solid #000000;
     box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
   }
   
   .loginBox input[type="text"]:focus,
   .loginBox input[type="password"]:focus {
-    border-bottom: 2px solid #42F3FA;
+    border-bottom: 2px solid #000000;
   }
   
   .inputBox {
@@ -113,4 +110,20 @@ body {
   p {
     color: #0000ff;
   }
+
+  .inputBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide en dos columnas de tamaño igual */
+    grid-column-gap: 20px; /* Espacio entre columnas */
+}
+
+.inputColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
   
