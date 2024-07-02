@@ -11,7 +11,7 @@ class SearchFlightView(FormView):
         origin = form.cleaned_data['origin']
         destiny = form.cleaned_data['destiny']
         date = form.cleaned_data['date']
-        
+
         # Construir la query string para redirigir con los parámetros
         query_string = f"?origin={origin}&destiny={destiny}&date={date}"
         return redirect(reverse('results') + query_string)
