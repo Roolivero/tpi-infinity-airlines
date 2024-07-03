@@ -5,9 +5,17 @@
     {% endblock link %}
     {% block content %}
             <div class="d-flex justify-content-center pt-3">
-                <h2>Search flight</h2>
+                <div class="container-fluid row align-items-baseline">
+                    <div class="col d-flex justify-content-end">
+                        <h2 class="customn"><i>Search flight</i></h2>
+                    </div>
+                    <div class="col">
+                        <img src="{% static 'images/image.png' %}" style="width: 125px; height: auto; margin: 0px;" alt="search">
+                    </div>
+                    
+                </div>
+                
             </div>
-            
             <div class="contenedor-formulario">
                     <form  class="formulario" method=POST action={% url 'search_flight' %}>
                         {% csrf_token %}

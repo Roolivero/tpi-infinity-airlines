@@ -28,7 +28,7 @@
 }
 
 .navbar-custom .nav-link:hover {
-    background-color: rgba(100, 228, 250, 0.5);
+    background-color: none;
     color: white;
     border-radius: 5px; 
 }
