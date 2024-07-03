@@ -57,6 +57,7 @@ class FlightHistoryManager(models.Manager):
     
     def add_sold_tickets(self, flight, quantity:int): 
         flight.sold_ticket =+ int(quantity)
+        flight.save()
     
     def calculate_available_tickets(self, flight):
         match flight.fk_plane.size:
