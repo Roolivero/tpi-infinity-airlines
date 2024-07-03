@@ -98,9 +98,9 @@ DATABASES = {
         'NAME': os.getenv("POSTGRES_DB"),
         'USER': os.getenv("POSTGRES_USER"),
         'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
-        'HOST': 'infinity-airlines-db',
+        'HOST': 'host.docker.internal',
         'PORT': os.getenv("POSTGRES_PORT") ,
-    }
+    }   
 }
 
 
