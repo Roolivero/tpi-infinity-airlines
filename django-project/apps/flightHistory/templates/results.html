@@ -10,10 +10,7 @@
 {% block content%}
     <div class="container-fluid p-0 d-flex">
         <main class="main flex-grow-1 text-align-start">
-            <aside class="aside bg-primary p-3 container-fluid w-100">
-                <button onclick="window.history.back()" class="btn btn-secondary m-2">Back to search</button>
-                Ordenar por:
-            </aside>
+            <button onclick="window.history.back()" class="btn btn-secondary m-2">Back to search</button>
             <div class="container p-0">
                 {% if result %}
                 {% for result in result  %}

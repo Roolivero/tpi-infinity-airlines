@@ -26,13 +26,9 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div>Tickets: {{ flight.available_tickets }}</div>
-                    <!-- Aquí podrías agregar un formulario para completar la compra -->
                 </div>
             </div>
         </div>
-        <!-- aca deberia ir la logica de suma -->
-
-
         <form class="m-5" method=POST action={% url 'purchase_confirmation' flight.id %} >
             {% csrf_token %}
             <div class="container-fluid">
