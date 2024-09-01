@@ -100,7 +100,7 @@ DATABASES = {
         'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
         'HOST': 'host.docker.internal',
         'PORT': os.getenv("POSTGRES_PORT") ,
-    }
+    }   
 }
 
 

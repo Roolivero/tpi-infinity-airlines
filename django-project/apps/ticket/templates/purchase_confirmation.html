@@ -5,8 +5,10 @@
 {% endblock link %} 
 {% block content %}
 
-    <div class="container ">
-        <h1>Purchase preferences confirmation</h1>
+    <div class="container">
+        <div class="row d-flex align-items-center m-4">
+            <h1>Confirm selected preferences</h1>
+        </div>
         <div class="card mb-3 mt-3" id="card">
             <div>
                 <h5 class="card-header d-flex justify-content-between align-items-center" id="card_header">
@@ -42,27 +44,24 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <table class="table table-striped-columns">
-                <thead>
-                  <tr>
-                    <th scope="col">Flight ticket price</th>
-                    <th scope="col">Class tier charge</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ flight.fk_flight.ticket_price}}</td>
-                    <td> {{ purchase_preferences.ticket_class_extra_charge }} </td>
-                    <td>{{ purchase_preferences.quantity }}</td>
-                    <td>{{ total_price }}</td>
-                  </tr>            
-                </tbody>
-              </table>
-            
-        </div>
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                <th scope="col">Flight ticket price</th>
+                <th scope="col">Class tier charge</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{{ flight.fk_flight.ticket_price}}</td>
+                <td> {{ purchase_preferences.ticket_class_extra_charge }} </td>
+                <td>{{ purchase_preferences.quantity }}</td>
+                <td>{{ total_price }}</td>
+                </tr>            
+            </tbody>
+            </table>
 
         <div class="d-flex justify-content-end">
             <button onclick="window.history.back()" class="btn btn-danger m-2">Cancel</button>

@@ -1,34 +1,40 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block link %}
-    <link rel="stylesheet" href="{% static "styles/style.css" %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 {% endblock link %}
-
 {% block content %}
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-info d-flex justify-content-center" role="alert">
                 {{ message }}
-            </div>   
+            </div>
         {% endfor %}
     {% endif %}
     <div class="container" id="container">
         <div class="loginBox">
-            <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+            <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px"/>
             <h3>Sign in here</h3>
-            <form method="POST" action="{%url 'login'%}">
+            <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="inputBox">
-                    <input id="uname" type="text" name="email" placeholder="Email">
-                    <input id="pass" type="password" name="password" placeholder="Password">
+                    <input id="uname" type="text" name="email" placeholder="Email" value="{{ form.email.value|default:'' }}"/>
+                    <input id="pass" type="password" name="password" placeholder="Password"/>
                 </div>
-                <input type="submit" value="Login">
+                <input type="submit" value="Login"/>
                 <div class="text-center">
-                    <a style="color: #59238F;" href="{%url 'register'%}">Sign-Up</a>
+                    <a style="color: #59238f" href="{% url 'register' %}">Sign-Up</a>
                 </div>
-            </form> 
-            
+                {% if form.errors %}
+                    <div class="error-messages d-flex justify-content-center p-1">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <div class="alert alert-danger p-2 m-1 d-flex" role="alert">{{ error }}</div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </form>
         </div>
     </div>
 {% endblock content %}
